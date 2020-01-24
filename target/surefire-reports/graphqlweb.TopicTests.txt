@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: graphqlweb.TopicTests
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.148 s <<< FAILURE! - in graphqlweb.TopicTests
+given_json_from_file_then_create_list_of_topics(graphqlweb.TopicTests)  Time elapsed: 1.981 s  <<< FAILURE!
+java.lang.AssertionError: expected:<[Topic Topic 1, articles=[Topic.Article [id=223, slug=/article1, title=Article 1]]], Topic Topic 2, articles=[Topic.Article [id=224, slug=/article2, title=Article 2]]], Topic Topic 3, articles=[Topic.Article [id=225, slug=/article3, title=Article 3]]]]> but was:<[]>
+	at graphqlweb.TopicTests.given_json_from_file_then_create_list_of_topics(TopicTests.java:80)
+
+testNothing(graphqlweb.TopicTests)  Time elapsed: 0.013 s  <<< FAILURE!
+java.lang.AssertionError: These are not the same,  expected:<1> but was:<2>
+	at graphqlweb.TopicTests.testNothing(TopicTests.java:51)
+

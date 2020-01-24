@@ -1,0 +1,39 @@
+{
+  "data": {
+    "topics": [
+      {
+        "id": "123",
+        "name": "Topic 1",
+        "articles": [
+          {
+            "id": "223",
+            "slug": "/article1",
+            "title": "Article 1"
+          }
+        ]
+      },
+      {
+        "id": "124",
+        "name": "Topic 2",
+        "articles": [
+          {
+            "id": "224",
+            "slug": "/article2",
+            "title": "Article 2"
+          }
+        ]
+      },
+      {
+        "id": "125",
+        "name": "Topic 3",
+        "articles": [
+          {
+            "id": "225",
+            "slug": "/article3",
+            "title": "Article 3"
+          }
+        ]
+      }
+    ]
+  }
+}

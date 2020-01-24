@@ -1,0 +1,14 @@
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/aexpgraphql/TopicList.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/datamodel/Topic.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/datamodel/Article.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/testing/Burp.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/aexpgraphql/GraphQLTopicStore.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/datamodel/Section.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/gateway/ArticleStore.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/aexpgraphql/TopicImp.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/aexpgraphql/ArticleImp.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/datamodel/Category.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/aexpgraphql/GraphQLArticleStore.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/aexpgraphql/ArticleList.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/testing/Main.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/gateway/TopicStore.java
