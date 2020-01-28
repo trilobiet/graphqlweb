@@ -6,6 +6,11 @@ import org.junit.Test;
 
 import com.trilobiet.graphqlweb.service.ArticleService;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class DataServiceTest {
 	
 	Article article = mock(Article.class);

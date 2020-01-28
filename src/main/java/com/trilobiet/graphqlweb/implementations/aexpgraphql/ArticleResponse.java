@@ -9,32 +9,32 @@ import io.aexp.nodes.graphql.GraphQLRequestEntity;
 import io.aexp.nodes.graphql.GraphQLResponseEntity;
 import io.aexp.nodes.graphql.GraphQLTemplate;
 
-final class ArticleResponse extends GraphQLResponse {
-	
-	ArticleResponse(GraphQLRequestEntity req) {
-		super(req);
-	}
+/**
+ * 
+ * @author acdhirr
+ *
+ */
+class ArticleResponse {
 
-	Article getArticle() {
+	static Article getArticle(GraphQLRequestEntity req) {
 		
 		GraphQLTemplate graphQLTemplate = new GraphQLTemplate();
 		GraphQLResponseEntity<ArticleImp> responseEntity = graphQLTemplate.query(req, ArticleImp.class);
 		return responseEntity.getResponse();
 	}
 	
-	List<Article> getArticles() {
+	static List<Article> getArticles(GraphQLRequestEntity req) {
 		
 		GraphQLTemplate graphQLTemplate = new GraphQLTemplate();
 		GraphQLResponseEntity<ArticleList> responseEntity = graphQLTemplate.query(req, ArticleList.class);
 		return responseEntity.getResponse().getArticles();
 	}
 
-	List<Category> getCategories() {
+	static List<Category> getCategories(GraphQLRequestEntity req) {
 		
 		GraphQLTemplate graphQLTemplate = new GraphQLTemplate();
 		GraphQLResponseEntity<CategoryList> responseEntity = graphQLTemplate.query(req, CategoryList.class);
 		return responseEntity.getResponse().getCategories();
 	}
-	
 	
 }

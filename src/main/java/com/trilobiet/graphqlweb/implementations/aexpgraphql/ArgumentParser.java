@@ -5,7 +5,11 @@ import java.util.Arrays;
 import io.aexp.nodes.graphql.InputObject;
 import io.aexp.nodes.graphql.InputObject.Builder;
 
-
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class ArgumentParser {
 	
 	public InputObject<String> parseWhere(String where) {

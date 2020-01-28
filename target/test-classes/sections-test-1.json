@@ -1,0 +1,61 @@
+{
+  "data": {
+    "sections": [
+      {
+        "name": "SECTION 1",
+        "topics": [
+          {
+            "name": "SEC 1 - TOPIC 1",
+            "articles": [
+              {
+                "title": "Article 1"
+              },
+              {
+                "title": "Article 2"
+              }
+            ]
+          }
+        ],
+        "translations": []
+      },
+      {
+        "name": "SECTION 2",
+        "topics": [
+          {
+            "name": "SEC 2 - TOPIC 1",
+            "articles": [
+              {
+                "title": "Article 1"
+              }
+            ]
+          },
+          {
+            "name": "SEC 2 - TOPIC 2",
+            "articles": [
+              {
+                "title": "Article 1"
+              }
+            ]
+          }
+          
+        ],
+        "translations": []
+      },
+      {
+        "name": "SECTION 3",
+        "topics": [],
+        "translations": [
+          {
+            "languageCode": "NL"
+          },
+          {
+            "languageCode": "DE"
+          },
+          {
+            "languageCode": "FR"
+          }
+        ]
+      }
+    ]
+  }
+}

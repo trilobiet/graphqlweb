@@ -2,9 +2,14 @@ package com.trilobiet.graphqlweb.datamodel;
 
 import java.util.List;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class Article {
 
-	private String id, slug, title, summary, tags;
+	private String id, slug, title, summary, tags, language;
 	private List<Category> categories;
 
 	public String getId() {
@@ -47,6 +52,14 @@ public class Article {
 		this.tags = tags;
 	}
 
+	public String getLanguage() {
+		return tags;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	
 	public List<Category> getCategories() {
 		return categories;
 	}
@@ -82,7 +95,7 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", slug=" + slug + ", categories=" + categories + "]";
+		return "Article [id=" + id + ", slug=" + slug + ", categories=" + categories + ", language=" + language + "]";
 	}
 
 	

@@ -1,48 +1,57 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
-import java.util.Collection;
+import java.util.List;
 
+import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.TopicDao;
-import com.trilobiet.graphqlweb.datamodel.Category;
 import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 
+import io.aexp.nodes.graphql.GraphQLRequestEntity;
+
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class GraphQLTopicDao implements TopicDao {
 	
-	private String graphqlHost;
+	private String host;
 	
-	public GraphQLTopicDao(String graphqlHost) {
-		this.graphqlHost = graphqlHost;
+	public GraphQLTopicDao(String host) {
+		this.host = host;
 	}
 
 	@Override
-	public Collection<Section> listSections() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Section> listSections() throws DaoException {
+
+		TopicRequest q = new TopicRequest(host);
+		GraphQLRequestEntity req = q.getListSectionsRequest();
+		return TopicResponse.getSections(req);
 	}
 
 	@Override
-	public Collection<Topic> list(Section section, String sort) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Topic> list(Section section, String sort) throws DaoException {
+
+		TopicRequest q = new TopicRequest(host);
+		GraphQLRequestEntity req = q.getListBySectionRequest(section, sort);
+		return TopicResponse.getTopics(req);
 	}
 
 	@Override
-	public Collection<Topic> list(Category category, String sort) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Topic> find(String name, String sort) throws DaoException {
+
+		TopicRequest q = new TopicRequest(host);
+		GraphQLRequestEntity req = q.getFindRequest(name, sort);
+		return TopicResponse.getTopics(req);
 	}
 
 	@Override
-	public Collection<Topic> find(String where, String sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Topic get(String id) throws DaoException {
 
-	@Override
-	public Topic get(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		TopicRequest q = new TopicRequest(host);
+		GraphQLRequestEntity req = q.getGetByIdRequest(id);
+		return TopicResponse.getTopic(req);
 	}
-
+	
 }

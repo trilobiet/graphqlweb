@@ -28,18 +28,7 @@
 			<version>0.5.0</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>com.atlassian.commonmark</groupId>
-			<artifactId>commonmark</artifactId>
-			<version>0.13.1</version>
-		</dependency>		
-		
-		<dependency>
-			<groupId>com.atlassian.commonmark</groupId>
-			<artifactId>commonmark-ext-gfm-tables</artifactId>
-			<version>0.13.1</version>
-		</dependency>		
-		
+	
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -71,6 +60,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<version>2.1</version>
+			<scope>test</scope>
+		</dependency>
 
 
 		<!--  
@@ -93,6 +88,27 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
+            
+            <!-- Make a FAT jar including (io.aexp) dependencies -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>assemble-all</id>
+						<phase>package</phase>
+						<goals>
+						 	<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>            
 
         </plugins>
     </build>

@@ -1,18 +1,20 @@
 package com.trilobiet.graphqlweb.dao;
 
-import java.util.Collection;
+import java.util.List;
 
-import com.trilobiet.graphqlweb.datamodel.Category;
-import com.trilobiet.graphqlweb.datamodel.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public interface TopicDao {
 
-	Collection<Section> listSections() throws DaoException;
-	Collection<Topic> list(Section section, String sort) throws DaoException;
-	Collection<Topic> list(Category category, String sort) throws DaoException;
-	Collection<Topic> find(String where, String sort) throws DaoException;
+	List<Section> listSections() throws DaoException;
+	List<Topic> list(Section section, String sort) throws DaoException;
+	List<Topic> find(String where, String sort) throws DaoException;
 	Topic get(String id) throws DaoException;
 	
 }

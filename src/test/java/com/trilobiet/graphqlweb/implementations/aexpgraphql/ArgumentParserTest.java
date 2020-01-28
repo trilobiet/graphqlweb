@@ -4,12 +4,14 @@ import org.json.JSONException;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.ArgumentParser;
-
 import io.aexp.nodes.graphql.InputObject;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class ArgumentParserTest {
-
 	
 	@Test
 	public void test_parse_from_string() throws JSONException {
@@ -33,23 +35,18 @@ public class ArgumentParserTest {
 		JSONAssert.assertEquals(obj.getMap().toString(), "{}", true);
 	}
 	
-	
 	@Test
 	public void test_parse_from_null() throws JSONException {
 		
 		InputObject<String> obj = new ArgumentParser().parseWhere(null);
 		JSONAssert.assertEquals(obj.getMap().toString(), "{}", true);
 	}
-
 	
 	@Test
 	public void test_parse_from_invalid_string() throws JSONException {
 		
 		InputObject<String> obj = new ArgumentParser().parseWhere("{lal}{ala,tral}ala}");
-		System.out.println(obj.getMap());
 		JSONAssert.assertEquals(obj.getMap().toString(), "{}", true);
 	}
-	
-	
 	
 }

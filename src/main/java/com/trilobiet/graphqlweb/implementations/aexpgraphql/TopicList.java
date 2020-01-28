@@ -7,6 +7,11 @@ import com.trilobiet.graphqlweb.datamodel.Topic;
 import io.aexp.nodes.graphql.annotations.GraphQLArgument;
 import io.aexp.nodes.graphql.annotations.GraphQLArguments;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class TopicList implements GraphQLMappable {
 	
 	@GraphQLArguments({

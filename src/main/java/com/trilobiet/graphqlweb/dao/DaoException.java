@@ -1,5 +1,10 @@
-package com.trilobiet.graphqlweb.datamodel;
+package com.trilobiet.graphqlweb.dao;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class DaoException extends Exception {
 
 	private static final long serialVersionUID = 1L;

@@ -2,20 +2,22 @@ package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
 import static org.junit.Assert.assertTrue;
 
-import java.net.MalformedURLException;
-
 import org.junit.Test;
 
+import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Category;
-import com.trilobiet.graphqlweb.datamodel.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Topic;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.ArticleRequest;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.TopicImp;
 
-public class ArticleQueryTests {
+/**
+ * Tests for correctness of GraphQL query requests based on model
+ * objects. 
+ * 
+ * @author acdhirr
+ *
+ */
+public class ArticleRequestTests {
 	
 	String dummyhost = "http://whatever";
-
 
 	@Test // getGetByIdRequest
 	public void test_graphql_query_for_single_Article_by_Id() 
@@ -32,7 +34,6 @@ public class ArticleQueryTests {
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
-    
 
 	@Test // getListCategoriesRequest
 	public void test_graphql_query_for_list_of_Categories() 
@@ -47,7 +48,6 @@ public class ArticleQueryTests {
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
-	
 
 	@Test // getListByCategoryRequest
 	public void test_graphql_query_for_list_of_Articles_for_Category() 
@@ -66,7 +66,6 @@ public class ArticleQueryTests {
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
 	
-	
 	@Test // getListByTopicRequest
 	public void test_graphql_query_for_list_of_Articles_for_Topic() 
 			throws DaoException {
@@ -83,7 +82,6 @@ public class ArticleQueryTests {
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
-	
 	
 	@Test // getFindRequest
 	public void test_graphql_query_for_list_of_Articles_by_searchterm() 

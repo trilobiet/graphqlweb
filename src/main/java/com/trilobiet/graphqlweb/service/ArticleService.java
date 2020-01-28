@@ -3,10 +3,15 @@ package com.trilobiet.graphqlweb.service;
 import java.util.Collection;
 
 import com.trilobiet.graphqlweb.dao.ArticleDao;
+import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Category;
-import com.trilobiet.graphqlweb.datamodel.DaoException;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLArticleDao;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class ArticleService {
 
 	private ArticleDao dao;
@@ -14,14 +19,11 @@ public class ArticleService {
 	public ArticleService(ArticleDao dao) {
 		this.dao = dao;
 	}
-
 	
 	public Collection<Category> getCategories() throws DaoException {
 		
 		return dao.listCategories();
 	}
-	
-	
 
 	public static void main(String[] args) {
 
@@ -33,8 +35,6 @@ public class ArticleService {
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 }

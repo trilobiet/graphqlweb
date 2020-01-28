@@ -7,6 +7,11 @@ import com.trilobiet.graphqlweb.datamodel.Category;
 import io.aexp.nodes.graphql.annotations.GraphQLArgument;
 import io.aexp.nodes.graphql.annotations.GraphQLArguments;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class CategoryList implements GraphQLMappable {
 	
 	@GraphQLArguments({

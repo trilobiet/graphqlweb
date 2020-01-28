@@ -1,7 +1,7 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
 /**
- * Marker interface to indicate Pojo's that can be mapped constructed from GraphQL
+ * Marker interface to indicate pojo's that can be constructed from GraphQL
  * @author acdhirr
  */
 interface GraphQLMappable {

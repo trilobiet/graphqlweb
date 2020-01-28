@@ -6,6 +6,11 @@ import java.util.stream.Collectors;
 import io.aexp.nodes.graphql.InputObject;
 import io.aexp.nodes.graphql.InputObject.Builder;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class ArgumentFormatter {
 	
 	public InputObject<String> getWhereArgument(Map<String, String> filterpairs) {

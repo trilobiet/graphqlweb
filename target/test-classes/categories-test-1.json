@@ -1,0 +1,18 @@
+{
+  "data": {
+    "categories": [
+      {
+        "name": "CATEGORY_1"
+      },
+      {
+        "name": "CATEGORY_2"
+      },
+      {
+        "name": "CATEGORY_3"
+      },
+      {
+        "name": "CATEGORY_4"
+      }
+    ]
+  }
+}

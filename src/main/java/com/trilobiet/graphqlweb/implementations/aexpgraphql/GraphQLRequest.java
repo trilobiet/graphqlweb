@@ -2,11 +2,16 @@ package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
 import java.net.MalformedURLException;
 
-import com.trilobiet.graphqlweb.datamodel.DaoException;
+import com.trilobiet.graphqlweb.dao.DaoException;
 
 import io.aexp.nodes.graphql.Arguments;
 import io.aexp.nodes.graphql.GraphQLRequestEntity;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 abstract class GraphQLRequest {
 	
 	private final String host;

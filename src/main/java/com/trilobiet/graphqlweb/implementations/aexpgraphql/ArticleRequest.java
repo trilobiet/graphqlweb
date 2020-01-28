@@ -1,7 +1,7 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
+import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Category;
-import com.trilobiet.graphqlweb.datamodel.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 
 import io.aexp.nodes.graphql.Argument;
@@ -9,6 +9,11 @@ import io.aexp.nodes.graphql.Arguments;
 import io.aexp.nodes.graphql.GraphQLRequestEntity;
 import io.aexp.nodes.graphql.InputObject;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 final class ArticleRequest extends GraphQLRequest {
 	
 	ArticleRequest(String host) {

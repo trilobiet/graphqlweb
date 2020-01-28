@@ -1,21 +1,14 @@
 package com.trilobiet.graphqlweb.playground;
 
 import java.net.MalformedURLException;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-
-import org.commonmark.Extension;
-import org.commonmark.ext.gfm.tables.TablesExtension;
-import org.commonmark.node.Node;
-import org.commonmark.parser.Parser;
-import org.commonmark.renderer.html.HtmlRenderer;
 
 import com.trilobiet.graphqlweb.datamodel.Article;
-import com.trilobiet.graphqlweb.datamodel.Category;
+import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql.ArticleImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql.ArticleList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql.TopicList;
 
 import io.aexp.nodes.graphql.Argument;
@@ -46,11 +39,11 @@ public class Main {
 
 		
 		// 2
-		InputObject<String> where = new InputObject.Builder<String>()
+/*		InputObject<String> where = new InputObject.Builder<String>()
 				  .put("summary_contains", "research")
 				  .put("tags_contains", "funder")
 				  .build();
-		
+	*/	
 		
 		// category search
 		
@@ -64,7 +57,7 @@ public class Main {
 				.put("categories", wheresub)
 				.build();
 		
-		System.out.println(where3.toString());
+		System.out.println("where3: " + where3.getMap().toString());
 		
 		GraphQLRequestEntity requestEntity2 = GraphQLRequestEntity.Builder()
 				.url("http://localhost:1337/graphql")
@@ -87,7 +80,7 @@ public class Main {
 		
 
 		
-		// 3 parse MD to HTML
+		/* 3 parse MD to HTML
 		Optional<String> md = Optional.ofNullable( articles.get(0).getSummary() );
 		List<Extension> extensions = Arrays.asList(TablesExtension.create());
 		Parser parser = Parser.builder().extensions(extensions).build();
@@ -95,7 +88,7 @@ public class Main {
 		HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();
 		String s = renderer.render(document);  
 		
-		System.out.println(s);
+		System.out.println(s); */
 		
 
 		// 4
@@ -113,6 +106,19 @@ public class Main {
 		System.out.println(topics);
 		
 		
+		//5 
+		GraphQLRequestEntity requestEntity4 = GraphQLRequestEntity.Builder()
+				.url("http://localhost:1337/graphql")
+				.request(SectionImp.class)
+				.arguments(new Arguments("section", new Argument<String>("id", "5e186f737bf9a003a80f39a2")))
+				.build();
+		
+		System.out.println(requestEntity4);
+		GraphQLResponseEntity<SectionImp> responseEntity4 = graphQLTemplate.query(requestEntity4, SectionImp.class);
+
+		Section section = responseEntity4.getResponse();
+		System.out.println("Section: -----------------------------------------------------------------------------");
+		System.out.println(section);
 		
 	}
 

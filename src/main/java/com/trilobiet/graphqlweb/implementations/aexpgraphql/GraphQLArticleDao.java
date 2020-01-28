@@ -1,54 +1,58 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.trilobiet.graphqlweb.dao.ArticleDao;
+import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Category;
-import com.trilobiet.graphqlweb.datamodel.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 
 import io.aexp.nodes.graphql.GraphQLRequestEntity;
 
+/**
+ * 
+ * @author acdhirr
+ *
+ */
 public class GraphQLArticleDao implements ArticleDao {
 	
 	private String host;
 	
-	public GraphQLArticleDao(String graphqlHost) {
-		this.host = graphqlHost;
+	public GraphQLArticleDao(String host) {
+		this.host = host;
 	}
 
 	@Override
-	public Collection<Category> listCategories() throws DaoException {
+	public List<Category> listCategories() throws DaoException {
 		
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getListCategoriesRequest();
-		return new ArticleResponse(req).getCategories();
-		
+		return ArticleResponse.getCategories(req);
 	}
 	
 	@Override
-	public Collection<Article> list(Topic topic, String sort) throws DaoException {
+	public List<Article> list(Topic topic, String sort) throws DaoException {
 
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getListByTopicRequest(topic, sort);
-		return new ArticleResponse(req).getArticles();
+		return ArticleResponse.getArticles(req);
 	}
 
 	@Override
-	public Collection<Article> list(Category category, String sort) throws DaoException {
+	public List<Article> list(Category category, String sort) throws DaoException {
 
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getListByCategoryRequest(category, sort);
-		return new ArticleResponse(req).getArticles();
+		return ArticleResponse.getArticles(req);
 	}
 	
 	@Override
-	public Collection<Article> find(String searchterm, String sort) throws DaoException {
+	public List<Article> find(String searchterm, String sort) throws DaoException {
 		
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getFindRequest(searchterm, sort);
-		return new ArticleResponse(req).getArticles();
+		return ArticleResponse.getArticles(req);
 	}
 	
 	@Override
@@ -56,18 +60,22 @@ public class GraphQLArticleDao implements ArticleDao {
 
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getGetByIdRequest(id);
-		return new ArticleResponse(req).getArticle();
+		return ArticleResponse.getArticle(req);
 	}
-
-	public static void main(String...strings) throws DaoException {
+	
+	
+	
+	public static void main(String...strings ) throws DaoException {
 		
 		GraphQLArticleDao dao = new GraphQLArticleDao("http://localhost:1337/graphql");
+		
+		System.out.println(dao.get("5e1dce7d2bb811000b64ef4f"));
 		
 		Category cat = new Category();
 		cat.setName("FUNDERS");
 		
-		Collection<Article> r = dao.list(cat, "title:asc");
-		System.out.println(r);
+		System.out.println(dao.list(cat, "name:asc"));
+		
 	}
-	
+
 }
