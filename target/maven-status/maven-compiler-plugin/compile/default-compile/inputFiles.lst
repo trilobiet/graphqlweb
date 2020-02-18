@@ -4,6 +4,7 @@
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/Topic.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/SectionImp.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/CategoryList.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/SortableArticle.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/playground/SiteStructure.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/ArticleList.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/Category.java
@@ -25,5 +26,6 @@
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/GraphQLMappable.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/GraphQLTopicDao.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/dao/ArticleDao.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/ArticleOutline.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/ArgumentFormatter.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/Article.java

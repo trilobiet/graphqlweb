@@ -9,10 +9,11 @@ import java.util.List;
  */
 public class Topic {
 
-	private String id, name;
-	private List<Topic.Article> articles;
+	private String id, name, groupHeader;
+	private List<ArticleOutline> articles;
 	private List<Translation> translations;
 	private int index;
+	private boolean hasMenuItem, publish;
 
 	public String getId() {
 		return id;
@@ -46,68 +47,39 @@ public class Topic {
 		this.translations = translations;
 	}
 
-	public List<Topic.Article> getArticles() {
+	public List<ArticleOutline> getArticles() {
 		return articles;
 	}
 
-	public void setArticles(List<Topic.Article> articles) {
+	public void setArticles(List<ArticleOutline> articles) {
 		this.articles = articles;
 	}
 
-	/**
-	 * Minimal Article info (non recursive) 
-	 * @author acdhirr
-	 */
-	public static class Article {
-
-		private String id, slug, title, summary, language;
-
-		public String getId() {
-			return id;
-		}
-
-		public void setId(String id) {
-			this.id = id;
-		}
-
-		public String getSlug() {
-			return slug;
-		}
-
-		public void setSlug(String slug) {
-			this.slug = slug;
-		}
-
-		public String getTitle() {
-			return title;
-		}
-
-		public void setTitle(String title) {
-			this.title = title;
-		}
-
-		public String getSummary() {
-			return summary;
-		}
-
-		public void setSummary(String summary) {
-			this.summary = summary;
-		}
-
-		public String getLanguage() {
-			return language;
-		}
-
-		public void setLanguage(String language) {
-			this.language = language;
-		}
-		
-		@Override
-		public String toString() {
-			return "Topic.Article [id=" + id + ", slug=" + slug + ", title=" + title + "]";
-		}
+	public String getGroupHeader() {
+		return groupHeader;
 	}
 
+	public void setGroupHeader(String groupHeader) {
+		this.groupHeader = groupHeader;
+	}
+
+	public boolean isHasMenuItem() {
+		return hasMenuItem;
+	}
+
+	public void setHasMenuItem(boolean hasMenuItem) {
+		this.hasMenuItem = hasMenuItem;
+	}
+
+	public boolean isPublish() {
+		return publish;
+	}
+
+	public void setPublish(boolean publish) {
+		this.publish = publish;
+	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

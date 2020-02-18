@@ -1,7 +1,0 @@
-datamodel/Section.class
-datamodel/Category.class
-gateway/ArticleStore.class
-datamodel/Article.class
-gateway/TopicStore.class
-datamodel/Topic$Article.class
-datamodel/Topic.class

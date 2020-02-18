@@ -9,9 +9,11 @@ import java.util.List;
  */
 public class Section {
 
-	private String name;
+	private String name, title;
 	private List<Topic> topics; 
 	private List<Translation> translations;
+	private int groupNumber, index;
+	private boolean hasMenuItem, publish;
 
 	public String getName() {
 		return name;
@@ -35,6 +37,46 @@ public class Section {
 
 	public void setTranslations(List<Translation> translations) {
 		this.translations = translations;
+	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+	public int getGroupNumber() {
+		return groupNumber;
+	}
+
+	public void setGroupNumber(int groupNumber) {
+		this.groupNumber = groupNumber;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public boolean isHasMenuItem() {
+		return hasMenuItem;
+	}
+
+	public void setHasMenuItem(boolean hasMenuItem) {
+		this.hasMenuItem = hasMenuItem;
+	}
+
+	public boolean isPublish() {
+		return publish;
+	}
+
+	public void setPublish(boolean publish) {
+		this.publish = publish;
 	}
 
 	@Override
@@ -66,5 +108,5 @@ public class Section {
 	public String toString() {
 		return "Section [name=" + name + ", topics=" + topics + ", translations=" + translations + "]";
 	}
-	
+
 }

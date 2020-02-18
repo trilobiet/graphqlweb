@@ -35,7 +35,6 @@ public class SiteStructure {
 				top.getArticles().stream().forEach( art -> {
 					
 					System.out.println(ind + ind + ind + art.getTitle() + " (lang:" + art.getLanguage() + ")" );
-					
 				});
 			});
 		});

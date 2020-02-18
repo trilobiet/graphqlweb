@@ -30,12 +30,12 @@ public class Main {
 		GraphQLRequestEntity requestEntity = GraphQLRequestEntity.Builder()
 				.url("http://localhost:1337/graphql")
 				.request(ArticleImp.class)
-				.arguments(new Arguments("article", new Argument<String>("id", "5e1dce7d2bb811000b64ef4f")))
+				.arguments(new Arguments("article", new Argument<String>("id", "5e1889db42bc0503ea15b23b")))
 				.build();
 		
 		System.out.println(requestEntity);
 		GraphQLResponseEntity<ArticleImp> responseEntity = graphQLTemplate.query(requestEntity, ArticleImp.class);
-		System.out.println(responseEntity.getResponse().getSummary());
+		System.out.println(responseEntity.getResponse());
 
 		
 		// 2
