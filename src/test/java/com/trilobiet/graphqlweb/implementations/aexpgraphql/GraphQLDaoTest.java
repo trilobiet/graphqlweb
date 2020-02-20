@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 import org.hamcrest.Matchers;
 import org.junit.After;
@@ -90,7 +91,7 @@ public class GraphQLDaoTest {
     	
     	TopicDao dao = new GraphQLTopicDao( host );
 		enqueueResponseFromResourceFile("topic-test-1.json");
-		Topic topic = dao.get("mockid");
+		Topic topic = dao.get("mockid").get(); // Optional!
 		
 		assertThat(topic, hasProperty("name", is("THE TOPIC")));
 		assertThat(topic, hasProperty("articles", Matchers.isA(List.class) ) );

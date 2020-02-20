@@ -10,8 +10,11 @@ import io.aexp.nodes.graphql.annotations.GraphQLProperty;
  * @author acdhirr
  *
  */
-@GraphQLProperty(name="article", arguments = {@GraphQLArgument(name = "id")})
+@GraphQLProperty(
+	name = "article", 
+	arguments = {
+		@GraphQLArgument(name = "id")
+	}
+)
 public class ArticleImp extends Article implements GraphQLMappable {
-
-	
 }

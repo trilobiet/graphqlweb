@@ -1,6 +1,7 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
@@ -56,11 +57,19 @@ public class GraphQLArticleDao implements ArticleDao {
 	}
 	
 	@Override
-	public Article get(String id) throws DaoException {
+	public Optional<Article> get(String id) throws DaoException {
 
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getGetByIdRequest(id);
-		return ArticleResponse.getArticle(req);
+		return Optional.ofNullable(ArticleResponse.getArticle(req));
+	}
+	
+	@Override
+	public Optional<Article> getBySlug(String slug) throws DaoException {
+
+		ArticleRequest q = new ArticleRequest(host);
+		GraphQLRequestEntity req = q.getGetBySlugRequest(slug);
+		return Optional.ofNullable(ArticleResponse.getArticles(req).get(0));
 	}
 	
 	

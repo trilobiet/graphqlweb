@@ -18,7 +18,7 @@ public class TopicList implements GraphQLMappable {
 		@GraphQLArgument(
 			name = "sort",
 			type = "String",
-			optional = true, value = "name:asc"
+			optional = true, value = "index:asc,name:asc"
 		),
 		@GraphQLArgument(
 			name = "where",

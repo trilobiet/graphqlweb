@@ -35,6 +35,22 @@ public class ArticleRequestTests {
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
 
+	@Test // getGetBySlugRequest
+	public void test_graphql_query_for_single_Article_by_Slug() 
+			throws DaoException {
+		
+		String slug =  "12345-whatever";
+		
+		ArticleRequest aq = new ArticleRequest(dummyhost);
+
+		String actualRequest = aq.getGetBySlugRequest(slug).getRequest().trim();
+		String expectedHeadOfRequest = "query { articles (sort:\"slug:asc\",where:{slug:\"12345-whatever\"}) { "; // field names in between
+		String expectedTailOfRequest = "} }";
+
+		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
+		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
+	}
+	
 	@Test // getListCategoriesRequest
 	public void test_graphql_query_for_list_of_Categories() 
 			throws DaoException {
@@ -58,10 +74,10 @@ public class ArticleRequestTests {
 		Category cat = new Category();
 		cat.setName("TESTCAT");
 
-		String actualRequest = aq.getListByCategoryRequest(cat,"title:desc").getRequest().trim();
-		String expectedHeadOfRequest = "query { articles (sort:\"title:desc\",where:{categories:{name:\"TESTCAT\"}}) {"; // field names in between
+		String actualRequest = aq.getListByCategoryRequest(cat,"title:asc").getRequest().trim();
+		String expectedHeadOfRequest = "query { articles (sort:\"title:asc\",where:{categories:{name:\"TESTCAT\"}}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
-		
+
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}

@@ -1,6 +1,7 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.TopicDao;
@@ -47,11 +48,20 @@ public class GraphQLTopicDao implements TopicDao {
 	}
 
 	@Override
-	public Topic get(String id) throws DaoException {
+	public Optional<Topic> get(String id) throws DaoException {
 
 		TopicRequest q = new TopicRequest(host);
 		GraphQLRequestEntity req = q.getGetByIdRequest(id);
-		return TopicResponse.getTopic(req);
+		return Optional.ofNullable(TopicResponse.getTopic(req));
 	}
+
+	@Override
+	public Optional<Topic> getBySlug(String slug) throws DaoException {
+
+		TopicRequest q = new TopicRequest(host);
+		GraphQLRequestEntity req = q.getGetBySlugRequest(slug);
+		return Optional.ofNullable(TopicResponse.getTopics(req).get(0));
+	}
+	
 	
 }

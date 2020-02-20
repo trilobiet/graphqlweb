@@ -18,7 +18,7 @@ public class SectionList implements GraphQLMappable {
 		@GraphQLArgument(
 			name = "sort",
 			type = "String",
-			optional = true, value = "title:asc"
+			optional = true, value = "groupNumber:asc,index:asc,name:asc"
 		),
 		@GraphQLArgument(
 			name = "where",

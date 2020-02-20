@@ -18,7 +18,7 @@ public class ArticleList implements GraphQLMappable {
 		@GraphQLArgument(
 			name = "sort",
 			type = "String",
-			optional = true, value = "title:asc"
+			optional = true, value = "index:asc,slug:asc"
 		),
 		@GraphQLArgument(
 			name = "where",

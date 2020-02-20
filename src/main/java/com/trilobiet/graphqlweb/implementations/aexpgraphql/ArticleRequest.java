@@ -26,6 +26,19 @@ final class ArticleRequest extends GraphQLRequest {
 		return getRequestEntity( args, ArticleImp.class); 
 	}
 	
+	GraphQLRequestEntity getGetBySlugRequest(String slug) throws DaoException {
+
+		InputObject<String> where = new InputObject.Builder<String>()
+				.put("slug", slug)
+				.build();
+		
+		Arguments args = new Arguments("articles", 
+				new Argument<String>("sort", "slug:asc"),
+				new Argument<Object>("where", where) );
+		
+		return getRequestEntity( args, ArticleList.class); 
+	}
+	
 	GraphQLRequestEntity getListCategoriesRequest()	throws DaoException {
 		
 		Arguments args = new Arguments("categories", 

@@ -34,14 +34,31 @@ public class TopicRequestTests {
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
 
+	@Test // getGetBySlugRequest
+	public void test_graphql_query_for_single_Topic_by_Slug() 
+			throws DaoException {
+		
+		String slug =  "12345-whatever";
+		
+		TopicRequest tq = new TopicRequest(dummyhost);
+
+		String actualRequest = tq.getGetBySlugRequest(slug).getRequest().trim();
+		String expectedHeadOfRequest = "query { topics (sort:\"slug:asc\",where:{slug:\"12345-whatever\"}) { "; // field names in between
+		String expectedTailOfRequest = "} }";
+
+		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
+		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
+	}
+	
 	@Test // getListCategoriesRequest
 	public void test_graphql_query_for_list_of_Sections() 
 			throws DaoException {
 		
 		TopicRequest tq = new TopicRequest(dummyhost);
-
+		
 		String actualRequest = tq.getListSectionsRequest().getRequest().trim();
-		String expectedHeadOfRequest = "query { sections (sort:\"name:asc\") { "; // field names in between
+		// uses default sorting as defined in SectionList.java
+		String expectedHeadOfRequest = "query { sections (sort:\"groupNumber:asc,index:asc,name:asc\") { "; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
