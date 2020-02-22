@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Section {
 
-	private String name, title;
+	private String name, description;
 	private List<Topic> topics; 
 	private List<Translation> translations;
 	private int groupNumber, index;
@@ -21,22 +21,6 @@ public class Section {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<Topic> getTopics() {
-		return topics;
-	}
-
-	public void setTopics(List<Topic> topics) {
-		this.topics = topics;
-	}
-	
-	public List<Translation> getTranslations() {
-		return translations;
-	}
-
-	public void setTranslations(List<Translation> translations) {
-		this.translations = translations;
 	}
 
 	public int getIndex() {
@@ -55,12 +39,12 @@ public class Section {
 		this.groupNumber = groupNumber;
 	}
 	
-	public String getTitle() {
-		return title;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public boolean isHasMenuItem() {
@@ -77,6 +61,22 @@ public class Section {
 
 	public void setPublish(boolean publish) {
 		this.publish = publish;
+	}
+
+	public List<Topic> getTopics() {
+		return topics;
+	}
+
+	public void setTopics(List<Topic> topics) {
+		this.topics = topics;
+	}
+	
+	public List<Translation> getTranslations() {
+		return translations;
+	}
+
+	public void setTranslations(List<Translation> translations) {
+		this.translations = translations;
 	}
 
 	@Override

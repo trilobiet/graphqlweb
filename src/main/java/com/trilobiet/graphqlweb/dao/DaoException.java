@@ -13,4 +13,12 @@ public class DaoException extends Exception {
 		super(root);
 	}
 
+	public DaoException(String message) {
+		super(message);
+	}
+	
+	public DaoException() {
+		super();
+	}
+	
 }

@@ -9,7 +9,8 @@ import java.util.List;
  */
 public class Topic {
 
-	private String id, name, groupHeader;
+	private String id, name, description, slug, groupHeader;
+	private String articleDisplay;
 	private List<ArticleOutline> articles;
 	private List<Translation> translations;
 	private int index;
@@ -22,7 +23,15 @@ public class Topic {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
 	
+	public String getSlug() {
+		return slug;
+	}
+
 	public int getIndex() {
 		return index;
 	}
@@ -37,6 +46,14 @@ public class Topic {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public List<Translation> getTranslations() {
@@ -80,6 +97,14 @@ public class Topic {
 	}
 
 	
+	public String getArticleDisplay() {
+		return articleDisplay;
+	}
+
+	public void setArticleDisplay(String articleDisplay) {
+		this.articleDisplay = articleDisplay;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

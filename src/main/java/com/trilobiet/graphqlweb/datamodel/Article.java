@@ -14,7 +14,7 @@ public class Article implements SortableArticle {
 			language, cssClass, type, menuLabel, externalLink;
 	private List<Category> categories;
 	private int index;
-	private boolean hasMenuItem, publish, spotlight;
+	private boolean hasMenuItem, publish, spotlight, topicLead;
 	private LocalDate publishFrom, publishUntil;
 	private ArticleOutline prevArticle, nextArticle;
 	
@@ -138,6 +138,14 @@ public class Article implements SortableArticle {
 		this.spotlight = spotlight;
 	}
 
+	public boolean isTopicLead() {
+		return topicLead;
+	}
+
+	public void setTopicLead(boolean topicLead) {
+		this.topicLead = topicLead;
+	}
+
 	public boolean isPublish() {
 		return publish;
 	}
@@ -177,50 +185,6 @@ public class Article implements SortableArticle {
 	public void setNextArticle(ArticleOutline nextArticle) {
 		this.nextArticle = nextArticle;
 	}
-
-	public static class PrevNextArticle {
-		
-		String title, language, slug;
-		int index;
-		
-		public String getTitle() {
-			return title;
-		}
-		
-		public void setTitle(String title) {
-			this.title = title;
-		}
-		
-		public String getLanguage() {
-			return language;
-		}
-		
-		public void setLanguage(String language) {
-			this.language = language;
-		}
-		
-		public String getSlug() {
-			return slug;
-		}
-		
-		public void setSlug(String slug) {
-			this.slug = slug;
-		}
-		
-		public int getIndex() {
-			return index;
-		}
-		
-		public void setIndex(int index) {
-			this.index = index;
-		}
-
-		public String toString() {
-			return "PrevNextArticle [slug=" + slug + "]";
-		}
-		
-	}
-	
 	
 	@Override
 	public int hashCode() {

@@ -11,7 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Optional;
 
 import org.hamcrest.Matchers;
 import org.junit.After;
@@ -20,9 +19,11 @@ import org.junit.Test;
 
 import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
+import com.trilobiet.graphqlweb.dao.SnippetDao;
 import com.trilobiet.graphqlweb.dao.TopicDao;
 import com.trilobiet.graphqlweb.datamodel.Category;
 import com.trilobiet.graphqlweb.datamodel.Section;
+import com.trilobiet.graphqlweb.datamodel.Snippet;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 
 import io.aexp.nodes.graphql.GraphQLRequestEntity;
@@ -100,6 +101,32 @@ public class GraphQLDaoTest {
         // Random deep test
         //assertEquals( topics.get(2).getArticles().get(0).getSlug(), "/article3" );
 	}
+
+    @Test
+	public void list_snippets_test() throws IOException, DaoException {
+    	
+    	SnippetDao dao = new GraphQLSnippetDao( host );
+    	enqueueResponseFromResourceFile("snippets-test-1.json");
+		List<Snippet> snippets = dao.list();
+		
+		assertThat(snippets, containsInAnyOrder(
+                hasProperty("name", is("a_snippet")),
+                hasProperty("name", is("another_snippet")),
+                hasProperty("name", is("yet_another_snippet"))
+        ));	
+	}
+    
+    @Test
+	public void get_snippet_test() throws IOException, DaoException {
+    	
+    	SnippetDao dao = new GraphQLSnippetDao( host );
+		enqueueResponseFromResourceFile("snippet-test-1.json");
+		Snippet snip = dao.get("mockid").get(); // Optional!
+		
+		assertThat(snip, hasProperty("name", is("a_snippet")));
+		assertThat(snip, hasProperty("code"));
+	}
+    
     
     @Test
 	public void list_sections_test() throws IOException, DaoException {
