@@ -1,15 +1,15 @@
 {
-  "data": {
-    "topic": {
-      "name": "THE TOPIC",
-      "articles": [
-        {
-          "title": "Article 1"
-        },
-        {
-          "title": "Article 2"
-        }
-      ]
-    }
-  }
+	"data": {
+		"topic": {
+			"name": "THE TOPIC",
+			"articles": [
+				{
+					"title": "Article 1"
+				},
+				{
+					"title": "Article 2"
+				}
+			]
+		}
+	}
 }

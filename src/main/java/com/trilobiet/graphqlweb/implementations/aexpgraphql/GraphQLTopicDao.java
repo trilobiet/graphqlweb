@@ -62,6 +62,14 @@ public class GraphQLTopicDao implements TopicDao {
 		GraphQLRequestEntity req = q.getGetBySlugRequest(slug);
 		return Optional.ofNullable(TopicResponse.getTopics(req).get(0));
 	}
+
+	@Override
+	public Optional<Section> getSectionBySlug(String slug) throws DaoException {
+
+		TopicRequest q = new TopicRequest(host);
+		GraphQLRequestEntity req = q.getSectionBySlugRequest(slug);
+		return Optional.ofNullable(TopicResponse.getSections(req).get(0));
+	}
 	
 	
 }

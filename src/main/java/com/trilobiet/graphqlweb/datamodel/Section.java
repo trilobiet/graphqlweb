@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Section {
 
-	private String name, description;
+	private String name, description, slug;
 	private List<Topic> topics; 
 	private List<Translation> translations;
 	private int groupNumber, index;
@@ -77,6 +77,14 @@ public class Section {
 
 	public void setTranslations(List<Translation> translations) {
 		this.translations = translations;
+	}
+
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
 	}
 
 	@Override

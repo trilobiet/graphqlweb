@@ -44,6 +44,19 @@ final class TopicRequest extends GraphQLRequest {
 				  new Argument<String>("sort", "groupNumber:asc,index:asc,name:asc") );
 		return getRequestEntity( args, SectionList.class ); 
 	}
+
+	GraphQLRequestEntity getSectionBySlugRequest(String slug) throws DaoException {
+		
+		InputObject<String> where = new InputObject.Builder<String>()
+				.put("slug", slug)
+				.build();
+		
+		Arguments args = new Arguments("sections", 
+				new Argument<String>("sort", "slug:asc"),
+				new Argument<Object>("where", where) );
+		
+		return getRequestEntity( args, SectionList.class ); 
+	}
 	
 	GraphQLRequestEntity getListBySectionRequest(Section section, String sort) 
 			throws DaoException {

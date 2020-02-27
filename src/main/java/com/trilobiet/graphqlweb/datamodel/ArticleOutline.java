@@ -9,6 +9,7 @@ public class ArticleOutline implements SortableArticle {
 
 	private String id, slug, title, summary, language;
 	private int index;
+	private boolean topicLead;
 
 	public String getId() {
 		return id;
@@ -58,9 +59,18 @@ public class ArticleOutline implements SortableArticle {
 		this.index = index;
 	}
 
+	public boolean isTopicLead() {
+		return topicLead;
+	}
+
+	public void setTopicLead(boolean topicLead) {
+		this.topicLead = topicLead;
+	}
+	
 	@Override
 	public String toString() {
 		return "ArticleOutline [index=" + index + ", slug=" + slug + ", title=" + title + "]";
 	}
+
 
 }

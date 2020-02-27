@@ -79,18 +79,6 @@ public class Main {
 		// Article.Topic p = articles.get(0).getTopics().get(0);
 		
 
-		
-		/* 3 parse MD to HTML
-		Optional<String> md = Optional.ofNullable( articles.get(0).getSummary() );
-		List<Extension> extensions = Arrays.asList(TablesExtension.create());
-		Parser parser = Parser.builder().extensions(extensions).build();
-		Node document = parser.parse( md.orElse("") );
-		HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();
-		String s = renderer.render(document);  
-		
-		System.out.println(s); */
-		
-
 		// 4
 		GraphQLRequestEntity requestEntity3 = GraphQLRequestEntity.Builder()
 				.url("http://localhost:1337/graphql")

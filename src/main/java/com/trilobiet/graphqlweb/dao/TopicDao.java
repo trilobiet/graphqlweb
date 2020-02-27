@@ -14,6 +14,7 @@ import com.trilobiet.graphqlweb.datamodel.Topic;
 public interface TopicDao {
 
 	List<Section> listSections() throws DaoException;
+	Optional<Section> getSectionBySlug(String slug) throws DaoException;
 	List<Topic> list(Section section, String sort) throws DaoException;
 	List<Topic> find(String where, String sort) throws DaoException;
 	Optional<Topic> get(String id) throws DaoException;

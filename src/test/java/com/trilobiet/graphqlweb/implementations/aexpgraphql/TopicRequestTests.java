@@ -64,6 +64,23 @@ public class TopicRequestTests {
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
+	
+	@Test // getGetBySlugRequest
+	public void test_graphql_query_for_single_Section_by_Slug() 
+			throws DaoException {
+		
+		String slug =  "12345-whatever";
+		
+		TopicRequest tq = new TopicRequest(dummyhost);
+
+		String actualRequest = tq.getSectionBySlugRequest(slug).getRequest().trim();
+		String expectedHeadOfRequest = "query { sections (sort:\"slug:asc\",where:{slug:\"12345-whatever\"}) { "; // field names in between
+		String expectedTailOfRequest = "} }";
+
+		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
+		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
+	}
+	
 
 	@Test // getListByCategoryRequest
 	public void test_graphql_query_for_list_of_Topics_for_Section() 

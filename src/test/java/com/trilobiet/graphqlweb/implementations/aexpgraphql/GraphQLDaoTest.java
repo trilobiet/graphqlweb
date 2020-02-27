@@ -144,9 +144,19 @@ public class GraphQLDaoTest {
 
         // Random deep test
 		assertEquals( sections.get(2).getTranslations().get(0).getLanguageCode(), "NL" );
-		
 	}
-    
+
+    @Test
+	public void get_section_test() throws IOException, DaoException {
+    	
+    	TopicDao dao = new GraphQLTopicDao( host );
+		enqueueResponseFromResourceFile("sections-test-1.json");
+		Section section = dao.getSectionBySlug("lalala").get(); // Optional!
+		
+		assertThat(section, hasProperty("name", is("SECTION 1")));
+		assertThat(section, hasProperty("topics", Matchers.isA(List.class) ) );
+		assertThat(section, hasProperty("topics", Matchers.hasSize(1) ) );
+	}
     
     protected void enqueueResponseFromResourceFile(String filename) throws IOException {
     	

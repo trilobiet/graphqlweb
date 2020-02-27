@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Topic {
 
-	private String id, name, description, slug, groupHeader;
+	private String id, name, description, slug, cssClass, groupHeader;
 	private String articleDisplay;
 	private List<ArticleOutline> articles;
 	private List<Translation> translations;
@@ -78,6 +78,14 @@ public class Topic {
 
 	public void setGroupHeader(String groupHeader) {
 		this.groupHeader = groupHeader;
+	}
+
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	public void setCssClass(String cssClass) {
+		this.cssClass = cssClass;
 	}
 
 	public boolean isHasMenuItem() {
