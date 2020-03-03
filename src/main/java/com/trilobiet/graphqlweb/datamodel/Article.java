@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Article implements SortableArticle {
 
-	private String id, slug, title, summary, content, tags, 
+	private String id, slug, title, summary, content, tags, params,
 			language, cssClass, type, menuLabel, externalLink;
 	private List<Category> categories;
 	private int index;
@@ -40,6 +40,14 @@ public class Article implements SortableArticle {
 
 	public void setSlug(String slug) {
 		this.slug = slug;
+	}
+
+	public String getParams() {
+		return params;
+	}
+
+	public void setParams(String params) {
+		this.params = params;
 	}
 
 	public String getTitle() {

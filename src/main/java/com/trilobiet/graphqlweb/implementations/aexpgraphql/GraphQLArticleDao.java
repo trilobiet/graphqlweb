@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
+import com.trilobiet.graphqlweb.dao.FieldValueQuery;
+import com.trilobiet.graphqlweb.dao.FieldValueQuery.MatchType;
 import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Category;
 import com.trilobiet.graphqlweb.datamodel.Topic;
@@ -55,6 +57,16 @@ public class GraphQLArticleDao implements ArticleDao {
 		GraphQLRequestEntity req = q.getFindRequest(searchterm, sort);
 		return ArticleResponse.getArticles(req);
 	}
+
+	@Override
+	public List<Article> find(FieldValueQuery fv) throws DaoException {
+		
+		ArticleRequest q = new ArticleRequest(host);
+		GraphQLRequestEntity req = q.getFindRequest(fv);
+		
+		System.out.println(req);
+		return ArticleResponse.getArticles(req);
+	}
 	
 	@Override
 	public Optional<Article> get(String id) throws DaoException {
@@ -76,14 +88,24 @@ public class GraphQLArticleDao implements ArticleDao {
 	
 	public static void main(String...strings ) throws DaoException {
 		
-		GraphQLArticleDao dao = new GraphQLArticleDao("http://localhost:1337/graphql");
+		String url = "your.url.com";
 		
+		GraphQLArticleDao dao = new GraphQLArticleDao(url);
+		/*
 		System.out.println(dao.get("5e1dce7d2bb811000b64ef4f"));
-		
 		Category cat = new Category();
 		cat.setName("FUNDERS");
-		
 		System.out.println(dao.list(cat, "name:asc"));
+		*/
+		
+		GraphQLFieldValueQuery q = 
+				new GraphQLFieldValueQuery.Builder("content", "and")
+				.setMatchType(MatchType.CONTAINS)
+				.setSort("index:DESC")
+				.build();
+		
+		List<Article> r = dao.find(q);
+		r.forEach(System.out::println);
 		
 	}
 

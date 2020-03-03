@@ -1,6 +1,8 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
+import com.trilobiet.graphqlweb.dao.FieldValueQuery;
+import com.trilobiet.graphqlweb.dao.FieldValueQuery.MatchType;
 import com.trilobiet.graphqlweb.datamodel.Category;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 
@@ -93,6 +95,22 @@ final class ArticleRequest extends GraphQLRequest {
 
 		Arguments args = new Arguments("articles", 
 				  new Argument<String>("sort", sort)
+				, new Argument<Object>("where", where) );
+		
+		return getRequestEntity( args, ArticleList.class); 
+	}
+
+	public GraphQLRequestEntity getFindRequest(FieldValueQuery fv) throws DaoException {
+		
+		String field = fv.getField();
+		if (fv.getMatch() == MatchType.CONTAINS) field = field + "_contains";
+		
+		InputObject<String> where = new InputObject.Builder<String>()
+				.put(field, fv.getValue())
+				.build();
+		
+		Arguments args = new Arguments("articles", 
+				  new Argument<String>("sort", fv.getSort())
 				, new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, ArticleList.class); 

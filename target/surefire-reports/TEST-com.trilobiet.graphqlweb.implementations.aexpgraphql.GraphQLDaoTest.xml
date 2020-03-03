@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="1.235" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="1.205" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/acdhirr/JavaProjects2017/graphqlweb/target/surefire/surefirebooter10275072691419781931.jar /home/acdhirr/JavaProjects2017/graphqlweb/target/surefire 2020-02-27T17-01-07_965-jvmRun1 surefire250917176346377876tmp surefire_03763010397799523580tmp"/>
+    <property name="sun.java.command" value="/home/acdhirr/JavaProjects2017/graphqlweb/target/surefire/surefirebooter7852590075024974790.jar /home/acdhirr/JavaProjects2017/graphqlweb/target/surefire 2020-03-03T16-37-19_850-jvmRun1 surefire3134108434698840492tmp surefire_09070268391612955802tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/acdhirr/JavaProjects2017/graphqlweb/target/test-classes:/home/acdhirr/JavaProjects2017/graphqlweb/target/classes:/home/acdhirr/.m2/repository/io/aexp/nodes/graphql/nodes/0.5.0/nodes-0.5.0.jar:/home/acdhirr/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.4/jackson-annotations-2.9.4.jar:/home/acdhirr/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar:/home/acdhirr/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar:/home/acdhirr/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.7/jackson-datatype-jsr310-2.9.7.jar:/home/acdhirr/.m2/repository/junit/junit/4.13/junit-4.13.jar:/home/acdhirr/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/acdhirr/.m2/repository/com/squareup/okhttp3/mockwebserver/3.10.0/mockwebserver-3.10.0.jar:/home/acdhirr/.m2/repository/com/squareup/okhttp3/okhttp/3.10.0/okhttp-3.10.0.jar:/home/acdhirr/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar:/home/acdhirr/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.50/bcprov-jdk15on-1.50.jar:/home/acdhirr/.m2/repository/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar:/home/acdhirr/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/acdhirr/.m2/repository/org/mockito/mockito-core/3.2.4/mockito-core-3.2.4.jar:/home/acdhirr/.m2/repository/net/bytebuddy/byte-buddy/1.10.5/byte-buddy-1.10.5.jar:/home/acdhirr/.m2/repository/net/bytebuddy/byte-buddy-agent/1.10.5/byte-buddy-agent-1.10.5.jar:/home/acdhirr/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/acdhirr/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/acdhirr/JavaProjects2017/graphqlweb/target/surefire/surefirebooter10275072691419781931.jar"/>
+    <property name="surefire.real.class.path" value="/home/acdhirr/JavaProjects2017/graphqlweb/target/surefire/surefirebooter7852590075024974790.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.5+10-post-Ubuntu-0ubuntu1.118.04"/>
     <property name="user.name" value="acdhirr"/>
@@ -56,11 +56,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="list_topics_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.992"/>
-  <testcase name="get_topic_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.049"/>
-  <testcase name="get_snippet_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.034"/>
-  <testcase name="list_sections_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.043"/>
-  <testcase name="list_snippets_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.023"/>
-  <testcase name="list_categories_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.031"/>
-  <testcase name="get_section_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.057"/>
+  <testcase name="list_topics_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="1.007"/>
+  <testcase name="get_topic_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.041"/>
+  <testcase name="get_snippet_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.016"/>
+  <testcase name="list_sections_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.037"/>
+  <testcase name="list_snippets_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.025"/>
+  <testcase name="list_categories_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.023"/>
+  <testcase name="get_section_test" classname="com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLDaoTest" time="0.04"/>
 </testsuite>

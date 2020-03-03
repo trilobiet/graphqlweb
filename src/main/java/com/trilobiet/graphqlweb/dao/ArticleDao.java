@@ -15,9 +15,12 @@ import com.trilobiet.graphqlweb.datamodel.Topic;
 public interface ArticleDao {
 
 	List<Category> listCategories() throws DaoException;
+
 	List<Article> list(Topic topic, String sort) throws DaoException;
 	List<Article> list(Category category, String sort) throws DaoException;
 	List<Article> find(String searchterm, String sort) throws DaoException;
+	List<Article> find(FieldValueQuery q) throws DaoException;
+	
 	Optional<Article> get(String id) throws DaoException;
 	Optional<Article> getBySlug(String slug) throws DaoException;
 }

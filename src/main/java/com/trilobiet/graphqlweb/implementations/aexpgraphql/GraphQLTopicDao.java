@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
+import com.trilobiet.graphqlweb.dao.FieldValueQuery;
 import com.trilobiet.graphqlweb.dao.TopicDao;
 import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Topic;
@@ -40,13 +41,22 @@ public class GraphQLTopicDao implements TopicDao {
 	}
 
 	@Override
-	public List<Topic> find(String name, String sort) throws DaoException {
+	public List<Topic> find(String searchterm, String sort) throws DaoException {
 
 		TopicRequest q = new TopicRequest(host);
-		GraphQLRequestEntity req = q.getFindRequest(name, sort);
+		GraphQLRequestEntity req = q.getFindRequest(searchterm, sort);
 		return TopicResponse.getTopics(req);
 	}
 
+	@Override
+	public List<Topic> find(FieldValueQuery fv) throws DaoException {
+		
+		TopicRequest q = new TopicRequest(host);
+		GraphQLRequestEntity req = q.getFindRequest(fv);
+		System.out.println(req);
+		return TopicResponse.getTopics(req);
+	}
+	
 	@Override
 	public Optional<Topic> get(String id) throws DaoException {
 
