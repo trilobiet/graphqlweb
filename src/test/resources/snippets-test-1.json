@@ -1,0 +1,18 @@
+{
+	"data": {
+		"snippets": [
+			{
+				"name": "a_snippet",
+				"code": "<script>alert(\"pietje\")</script>"
+			},
+			{
+				"name": "another_snippet",
+				"code": "<script>alert(\"jan\")</script>"
+			},
+			{
+				"name": "yet_another_snippet",
+				"code": "<div>Whatever content you like</div>"
+			}
+		]
+	}
+}

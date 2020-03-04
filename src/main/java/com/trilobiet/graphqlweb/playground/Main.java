@@ -24,13 +24,16 @@ public class Main {
 
 		GraphQLTemplate graphQLTemplate = new GraphQLTemplate();
 		
+		// String theserver = "http://localhost:1337/graphql"
+		String theserver = "https://oapen-cms.trilobiet.eu/graphql";
+		
 		System.out.println(graphQLTemplate);
 
 		// 1
 		GraphQLRequestEntity requestEntity = GraphQLRequestEntity.Builder()
-				.url("http://localhost:1337/graphql")
+				.url(theserver)
 				.request(ArticleImp.class)
-				.arguments(new Arguments("article", new Argument<String>("id", "5e1889db42bc0503ea15b23b")))
+				.arguments(new Arguments("article", new Argument<String>("id", "5e1dce7d2bb811000b64ef4f")))
 				.build();
 		
 		System.out.println(requestEntity);
@@ -60,7 +63,7 @@ public class Main {
 		System.out.println("where3: " + where3.getMap().toString());
 		
 		GraphQLRequestEntity requestEntity2 = GraphQLRequestEntity.Builder()
-				.url("http://localhost:1337/graphql")
+				.url(theserver)
 				.request(ArticleList.class)
 				.arguments(new Arguments("articles", 
 					  new Argument<String>("sort", "title:desc")
@@ -81,7 +84,7 @@ public class Main {
 
 		// 4
 		GraphQLRequestEntity requestEntity3 = GraphQLRequestEntity.Builder()
-				.url("http://localhost:1337/graphql")
+				.url(theserver)
 				.request(TopicList.class)
 				// .arguments(new Arguments("topic", new Argument<String>("id", "5e1dce7d2bb811000b64ef4f")))
 				.build();
@@ -96,7 +99,7 @@ public class Main {
 		
 		//5 
 		GraphQLRequestEntity requestEntity4 = GraphQLRequestEntity.Builder()
-				.url("http://localhost:1337/graphql")
+				.url(theserver)
 				.request(SectionImp.class)
 				.arguments(new Arguments("section", new Argument<String>("id", "5e186f737bf9a003a80f39a2")))
 				.build();

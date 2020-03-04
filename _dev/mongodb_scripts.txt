@@ -1,0 +1,2 @@
+// remove a field named 'afield'
+db.article.updateMany( {}, { $unset : {"afield":""} } )

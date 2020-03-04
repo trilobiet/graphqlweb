@@ -1,6 +1,5 @@
 package com.trilobiet.graphqlweb.datamodel;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -10,12 +9,11 @@ import java.util.List;
  */
 public class Article implements SortableArticle {
 
-	private String id, slug, title, summary, content, tags, params,
-			language, cssClass, type, menuLabel, externalLink;
+	private String id, slug, title, summary, content, tags, 
+			language, cssClass, externalLink;
 	private List<Category> categories;
 	private int index;
 	private boolean hasMenuItem, publish, spotlight, topicLead;
-	private LocalDate publishFrom, publishUntil;
 	private ArticleOutline prevArticle, nextArticle;
 	
 	public String getId() {
@@ -40,14 +38,6 @@ public class Article implements SortableArticle {
 
 	public void setSlug(String slug) {
 		this.slug = slug;
-	}
-
-	public String getParams() {
-		return params;
-	}
-
-	public void setParams(String params) {
-		this.params = params;
 	}
 
 	public String getTitle() {
@@ -98,22 +88,6 @@ public class Article implements SortableArticle {
 		this.cssClass = cssClass;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getMenuLabel() {
-		return menuLabel;
-	}
-
-	public void setMenuLabel(String menuLabel) {
-		this.menuLabel = menuLabel;
-	}
-
 	public String getExternalLink() {
 		return externalLink;
 	}
@@ -160,22 +134,6 @@ public class Article implements SortableArticle {
 
 	public void setPublish(boolean publish) {
 		this.publish = publish;
-	}
-
-	public LocalDate getPublishFrom() {
-		return publishFrom;
-	}
-
-	public void setPublishFrom(LocalDate publishFrom) {
-		this.publishFrom = publishFrom;
-	}
-
-	public LocalDate getPublishUntil() {
-		return publishUntil;
-	}
-
-	public void setPublishUntil(LocalDate publishUntil) {
-		this.publishUntil = publishUntil;
 	}
 
 	public ArticleOutline getPrevArticle() {

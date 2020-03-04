@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Topic {
 
-	private String id, name, description, slug, cssClass, groupHeader;
+	private String id, name, description, slug, cssClass, groupHeader, params, type;
 	private String articleDisplay;
 	private List<ArticleOutline> articles;
 	private List<Translation> translations;
@@ -54,6 +54,22 @@ public class Topic {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getParams() {
+		return params;
+	}
+
+	public void setParams(String params) {
+		this.params = params;
 	}
 
 	public List<Translation> getTranslations() {
@@ -140,7 +156,7 @@ public class Topic {
 	
 	@Override
 	public String toString() {
-		return "Topic " + name + ", articles=" + articles + ", index=" + index + "]";
+		return "Topic " + name + ", articles=" + articles + ", index=" + index + ", type=" + type + "]";
 	}
 
 }
