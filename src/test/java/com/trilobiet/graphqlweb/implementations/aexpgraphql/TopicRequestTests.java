@@ -43,9 +43,9 @@ public class TopicRequestTests {
 		TopicRequest tq = new TopicRequest(dummyhost);
 
 		String actualRequest = tq.getGetBySlugRequest(slug).getRequest().trim();
-		String expectedHeadOfRequest = "query { topics (sort:\"slug:asc\",where:{slug:\"12345-whatever\"}) { "; // field names in between
+		String expectedHeadOfRequest = "query { topics (sort:\"slug:asc\",where:{publish:\"true\",slug:\"12345-whatever\"}) { "; // field names in between
 		String expectedTailOfRequest = "} }";
-
+		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
@@ -58,7 +58,7 @@ public class TopicRequestTests {
 		
 		String actualRequest = tq.getListSectionsRequest().getRequest().trim();
 		// uses default sorting as defined in SectionList.java
-		String expectedHeadOfRequest = "query { sections (sort:\"groupNumber:asc,index:asc,name:asc\") { "; // field names in between
+		String expectedHeadOfRequest = "query { sections (sort:\"groupNumber:asc,index:asc,name:asc\",where:\"publish:true\") { "; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
@@ -74,7 +74,7 @@ public class TopicRequestTests {
 		TopicRequest tq = new TopicRequest(dummyhost);
 
 		String actualRequest = tq.getSectionBySlugRequest(slug).getRequest().trim();
-		String expectedHeadOfRequest = "query { sections (sort:\"slug:asc\",where:{slug:\"12345-whatever\"}) { "; // field names in between
+		String expectedHeadOfRequest = "query { sections (sort:\"slug:asc\",where:{publish:\"true\",slug:\"12345-whatever\"}) { "; // field names in between
 		String expectedTailOfRequest = "} }";
 
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
@@ -92,7 +92,7 @@ public class TopicRequestTests {
 		sec.setName("TESTSEC");
 
 		String actualRequest = tq.getListBySectionRequest(sec,"title:desc").getRequest().trim();
-		String expectedHeadOfRequest = "query { topics (sort:\"title:desc\",where:{sections:{name:\"TESTSEC\"}}) {"; // field names in between
+		String expectedHeadOfRequest = "query { topics (sort:\"title:desc\",where:{publish:\"true\",sections:{publish:\"true\",name:\"TESTSEC\"}}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
@@ -106,7 +106,7 @@ public class TopicRequestTests {
 		TopicRequest tq = new TopicRequest(dummyhost);
 		
 		String actualRequest = tq.getFindRequest("nonsense", "title:desc").getRequest().trim();
-		String expectedHeadOfRequest = "query { topics (sort:\"title:desc\",where:{name_contains:\"nonsense\"}) {"; // field names in between
+		String expectedHeadOfRequest = "query { topics (sort:\"title:desc\",where:{publish:\"true\",name_contains:\"nonsense\"}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );

@@ -9,12 +9,20 @@ import java.util.List;
  */
 public class Section {
 
-	private String name, description, slug;
+	private String id, name, description, slug;
 	private List<Topic> topics; 
 	private List<Translation> translations;
 	private int groupNumber, index;
 	private boolean hasMenuItem, publish;
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -91,7 +99,7 @@ public class Section {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -104,10 +112,10 @@ public class Section {
 		if (getClass() != obj.getClass())
 			return false;
 		Section other = (Section) obj;
-		if (name == null) {
-			if (other.name != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}

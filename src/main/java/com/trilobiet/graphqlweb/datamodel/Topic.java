@@ -81,6 +81,7 @@ public class Topic {
 	}
 
 	public List<ArticleOutline> getArticles() {
+		// articles.removeIf(a -> !a.isPublish());
 		return articles;
 	}
 

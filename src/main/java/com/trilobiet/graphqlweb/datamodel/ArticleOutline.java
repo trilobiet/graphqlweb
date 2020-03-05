@@ -1,7 +1,7 @@
 package com.trilobiet.graphqlweb.datamodel;
 
 /**
- * Minimal Article info (non recursive) 
+ * Core Article info (non recursive) 
  * @author acdhirr
  *
  */
@@ -9,7 +9,7 @@ public class ArticleOutline implements SortableArticle {
 
 	private String id, slug, title, summary, language;
 	private int index;
-	private boolean topicLead;
+	private boolean publish, topicLead;
 
 	public String getId() {
 		return id;
@@ -65,6 +65,14 @@ public class ArticleOutline implements SortableArticle {
 
 	public void setTopicLead(boolean topicLead) {
 		this.topicLead = topicLead;
+	}
+
+	public boolean isPublish() {
+		return publish;
+	}
+
+	public void setPublish(boolean publish) {
+		this.publish = publish;
 	}
 	
 	@Override

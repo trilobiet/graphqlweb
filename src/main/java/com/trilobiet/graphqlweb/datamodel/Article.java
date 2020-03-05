@@ -7,54 +7,13 @@ import java.util.List;
  * @author acdhirr
  *
  */
-public class Article implements SortableArticle {
+public class Article extends ArticleOutline {
 
-	private String id, slug, title, summary, content, tags, 
-			language, cssClass, externalLink;
+	private String content, tags, cssClass, externalLink;
 	private List<Category> categories;
 	private int index;
-	private boolean hasMenuItem, publish, spotlight, topicLead;
+	private boolean hasMenuItem, spotlight;
 	private ArticleOutline prevArticle, nextArticle;
-	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public int getIndex() {
-		return index;
-	}
-	
-	public void setIndex(int index) {
-		this.index = index;
-	}
-
-	public String getSlug() {
-		return slug;
-	}
-
-	public void setSlug(String slug) {
-		this.slug = slug;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getSummary() {
-		return summary;
-	}
-
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
 	
 	public String getContent() {
 		return content;
@@ -72,14 +31,6 @@ public class Article implements SortableArticle {
 		this.tags = tags;
 	}
 
-	public String getLanguage() {
-		return tags;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-	
 	public String getCssClass() {
 		return cssClass;
 	}
@@ -120,22 +71,6 @@ public class Article implements SortableArticle {
 		this.spotlight = spotlight;
 	}
 
-	public boolean isTopicLead() {
-		return topicLead;
-	}
-
-	public void setTopicLead(boolean topicLead) {
-		this.topicLead = topicLead;
-	}
-
-	public boolean isPublish() {
-		return publish;
-	}
-
-	public void setPublish(boolean publish) {
-		this.publish = publish;
-	}
-
 	public ArticleOutline getPrevArticle() {
 		return prevArticle;
 	}
@@ -153,34 +88,9 @@ public class Article implements SortableArticle {
 	}
 	
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Article other = (Article) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-
-	@Override
 	public String toString() {
-		return "Article [index=" + index + ", slug=" + slug 
-				+ ", language=" + language 
+		return "Article [index=" + index + ", slug=" + getSlug() 
+				+ ", language=" + getLanguage() 
 				+ " prev=" + prevArticle + " next=" + nextArticle 
 				+ "]";
 	}

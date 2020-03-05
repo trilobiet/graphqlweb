@@ -30,12 +30,13 @@ final class TopicRequest extends GraphQLRequest {
 	GraphQLRequestEntity getGetBySlugRequest(String slug) throws DaoException {
 
 		InputObject<String> where = new InputObject.Builder<String>()
-				.put("slug", slug)
-				.build();
+			.put("slug", slug)
+			.put("publish", "true")
+			.build();
 		
 		Arguments args = new Arguments("topics", 
-				new Argument<String>("sort", "slug:asc"),
-				new Argument<Object>("where", where) );
+			new Argument<String>("sort", "slug:asc"),
+			new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, TopicList.class); 
 	}
@@ -43,19 +44,21 @@ final class TopicRequest extends GraphQLRequest {
 	GraphQLRequestEntity getListSectionsRequest() throws DaoException {
 		
 		Arguments args = new Arguments("sections", 
-				  new Argument<String>("sort", "groupNumber:asc,index:asc,name:asc") );
+			new Argument<String>("sort", "groupNumber:asc,index:asc,name:asc") );
+		
 		return getRequestEntity( args, SectionList.class ); 
 	}
 
 	GraphQLRequestEntity getSectionBySlugRequest(String slug) throws DaoException {
 		
 		InputObject<String> where = new InputObject.Builder<String>()
-				.put("slug", slug)
-				.build();
+			.put("slug", slug)
+			.put("publish", "true")
+			.build();
 		
 		Arguments args = new Arguments("sections", 
-				new Argument<String>("sort", "slug:asc"),
-				new Argument<Object>("where", where) );
+			new Argument<String>("sort", "slug:asc"),
+			new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, SectionList.class ); 
 	}
@@ -64,15 +67,18 @@ final class TopicRequest extends GraphQLRequest {
 			throws DaoException {
 
 		InputObject<String> deepFilter = new InputObject.Builder<String>()
-			.put("name",section.getName()).build();
-			
-		InputObject<InputObject<String>> where = new InputObject.Builder<InputObject<String>>()
-				.put("sections", deepFilter)
-				.build();
+			.put("name",section.getName())
+			.put("publish", "true")
+			.build();
+		
+		InputObject<Object> where = new InputObject.Builder<Object>()
+			.put("publish", "true")
+			.put("sections", deepFilter)
+			.build();
 		
 		Arguments args = new Arguments("topics", 
-				  new Argument<String>("sort", sort)
-				, new Argument<Object>("where", where) );
+			  new Argument<String>("sort", sort)
+			, new Argument<Object>("where", where) );
 		
 		GraphQLRequestEntity s = getRequestEntity( args, TopicList.class );
 		
@@ -84,12 +90,13 @@ final class TopicRequest extends GraphQLRequest {
 		// Only searches field 'name'
 		// TODO: search title, summary etc. too
 		InputObject<String> where = new InputObject.Builder<String>()
-				.put("name_contains", name)
-				.build();
+			.put("name_contains", name)
+			.put("publish", "true")
+			.build();
 
 		Arguments args = new Arguments("topics", 
-				  new Argument<String>("sort", sort)
-				, new Argument<Object>("where", where) );
+			  new Argument<String>("sort", sort)
+			, new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, TopicList.class); 
 	}
@@ -100,12 +107,13 @@ final class TopicRequest extends GraphQLRequest {
 		if (fv.getMatch() == MatchType.CONTAINS) field = field + "_contains";
 		
 		InputObject<String> where = new InputObject.Builder<String>()
-				.put(field, fv.getValue())
-				.build();
+			.put(field, fv.getValue())
+			.put("publish", "true")
+			.build();
 		
 		Arguments args = new Arguments("topics", 
-				  new Argument<String>("sort", fv.getSort())
-				, new Argument<Object>("where", where) );
+			  new Argument<String>("sort", fv.getSort())
+			, new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, TopicList.class); 
 	}
