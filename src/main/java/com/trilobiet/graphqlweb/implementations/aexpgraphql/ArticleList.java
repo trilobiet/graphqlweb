@@ -22,7 +22,7 @@ public class ArticleList implements GraphQLMappable {
 		),
 		@GraphQLArgument(
 			name = "where",
-			optional = true, value = "publish:true"
+			optional = false, value = "publish:true"
 		)
 	})
 	

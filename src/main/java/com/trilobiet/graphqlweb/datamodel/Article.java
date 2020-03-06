@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Article extends ArticleOutline {
 
-	private String content, tags, cssClass, externalLink;
+	private String content, tags, cssClass, params, externalLink;
 	private List<Category> categories;
 	private int index;
 	private boolean hasMenuItem, spotlight;
@@ -69,6 +69,14 @@ public class Article extends ArticleOutline {
 
 	public void setSpotlight(boolean spotlight) {
 		this.spotlight = spotlight;
+	}
+	
+	public String getParams() {
+		return params;
+	}
+
+	public void setParams(String params) {
+		this.params = params;
 	}
 
 	public ArticleOutline getPrevArticle() {

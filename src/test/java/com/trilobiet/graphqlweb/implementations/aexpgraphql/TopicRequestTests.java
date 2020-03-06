@@ -11,6 +11,9 @@ import com.trilobiet.graphqlweb.datamodel.Section;
  * Tests for correctness of GraphQL query requests based on model
  * objects. 
  * 
+ * NOTE: GraphQL is NOT Json - known testers here are not useable...
+ * TODO find some tester for GraphQL
+ * 
  * @author acdhirr
  *
  */
@@ -58,7 +61,7 @@ public class TopicRequestTests {
 		
 		String actualRequest = tq.getListSectionsRequest().getRequest().trim();
 		// uses default sorting as defined in SectionList.java
-		String expectedHeadOfRequest = "query { sections (sort:\"groupNumber:asc,index:asc,name:asc\",where:\"publish:true\") { "; // field names in between
+		String expectedHeadOfRequest = "query { sections (sort:\"groupNumber:asc,index:asc,name:asc\",where:{publish:\"true\"}) { "; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
@@ -92,7 +95,7 @@ public class TopicRequestTests {
 		sec.setName("TESTSEC");
 
 		String actualRequest = tq.getListBySectionRequest(sec,"title:desc").getRequest().trim();
-		String expectedHeadOfRequest = "query { topics (sort:\"title:desc\",where:{publish:\"true\",sections:{publish:\"true\",name:\"TESTSEC\"}}) {"; // field names in between
+		String expectedHeadOfRequest = "query { topics (sort:\"title:desc\",where:{publish:\"true\",sections:{name:\"TESTSEC\"}}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );

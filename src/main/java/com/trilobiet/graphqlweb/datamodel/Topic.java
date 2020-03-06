@@ -1,6 +1,7 @@
 package com.trilobiet.graphqlweb.datamodel;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -81,12 +82,13 @@ public class Topic {
 	}
 
 	public List<ArticleOutline> getArticles() {
-		// articles.removeIf(a -> !a.isPublish());
 		return articles;
 	}
 
 	public void setArticles(List<ArticleOutline> articles) {
-		this.articles = articles;
+		// only published Articles!
+		this.articles = articles.stream().
+			filter(a -> a.isPublish()).collect(Collectors.toList());
 	}
 
 	public String getGroupHeader() {

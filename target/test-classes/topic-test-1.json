@@ -4,10 +4,16 @@
 			"name": "THE TOPIC",
 			"articles": [
 				{
-					"title": "Article 1"
+					"title": "Article 1",
+					"publish": "true"
 				},
 				{
-					"title": "Article 2"
+					"title": "Article 2",
+					"publish": "true"
+				},
+				{
+					"title": "Article 3",
+					"publish": "false"
 				}
 			]
 		}

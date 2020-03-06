@@ -13,7 +13,8 @@ import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 @GraphQLProperty(
 	name = "topic", 
 	arguments = {
-		@GraphQLArgument(name = "id", optional=true)
+		@GraphQLArgument(name = "id", optional=true),
+		@GraphQLArgument(name = "where", optional=true)
 	}
 )
 public class TopicImp extends Topic implements GraphQLMappable {

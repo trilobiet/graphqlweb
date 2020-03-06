@@ -12,6 +12,9 @@ import com.trilobiet.graphqlweb.datamodel.Topic;
  * Tests for correctness of GraphQL query requests based on model
  * objects. 
  * 
+ * NOTE: GraphQL is NOT Json - known testers here are not useable...
+ * TODO find some tester for GraphQL
+ * 
  * @author acdhirr
  *
  */

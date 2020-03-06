@@ -31,12 +31,13 @@ final class ArticleRequest extends GraphQLRequest {
 	GraphQLRequestEntity getGetBySlugRequest(String slug) throws DaoException {
 
 		InputObject<String> where = new InputObject.Builder<String>()
-				.put("slug", slug)
-				.build();
+			.put("slug", slug)
+			.put("publish", "true")
+			.build();
 		
 		Arguments args = new Arguments("articles", 
-				new Argument<String>("sort", "slug:asc"),
-				new Argument<Object>("where", where) );
+			new Argument<String>("sort", "slug:asc"),
+			new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, ArticleList.class); 
 	}
@@ -44,23 +45,26 @@ final class ArticleRequest extends GraphQLRequest {
 	GraphQLRequestEntity getListCategoriesRequest()	throws DaoException {
 		
 		Arguments args = new Arguments("categories", 
-				  new Argument<String>("sort", "name:asc") );
+			new Argument<String>("sort", "name:asc") );
+
 		return getRequestEntity( args, CategoryList.class ); 
 	}
 	
 	GraphQLRequestEntity getListByCategoryRequest(Category category, String sort) 
 			throws DaoException {
 
-		InputObject<String> deepFilter = new InputObject.Builder<String>()
-			.put("name",category.getName()).build();
+		InputObject<String> nestedWhere = new InputObject.Builder<String>()
+			.put("name",category.getName())
+			.build();
 			
-		InputObject<InputObject<String>> where = new InputObject.Builder<InputObject<String>>()
-				.put("categories", deepFilter)
-				.build();
+		InputObject<Object> where = new InputObject.Builder<Object>()
+			.put("publish","true")					
+			.put("categories", nestedWhere)
+			.build();
 		
 		Arguments args = new Arguments("articles", 
-				  new Argument<String>("sort", sort)
-				, new Argument<Object>("where", where) );
+			  new Argument<String>("sort", sort)
+			, new Argument<Object>("where", where) );
 		
 		GraphQLRequestEntity s = getRequestEntity( args, ArticleList.class );
 		
@@ -69,16 +73,18 @@ final class ArticleRequest extends GraphQLRequest {
 	
 	GraphQLRequestEntity getListByTopicRequest(Topic topic, String sort) throws DaoException {
 
-		InputObject<String> deepFilter = new InputObject.Builder<String>()
-				.put("name",topic.getName()).build();
+		InputObject<String> nestedWhere = new InputObject.Builder<String>()
+			.put("name",topic.getName())
+			.build();
 				
-		InputObject<InputObject<String>> where = new InputObject.Builder<InputObject<String>>()
-				.put("topics", deepFilter)
-				.build();
+		InputObject<Object> where = new InputObject.Builder<Object>()
+			.put("publish", "true")
+			.put("topics", nestedWhere)
+			.build();
 
 		Arguments args = new Arguments("articles", 
-				  new Argument<String>("sort", sort)
-				, new Argument<Object>("where", where) );
+			  new Argument<String>("sort", sort)
+			, new Argument<Object>("where", where) );
 		
 		GraphQLRequestEntity s = getRequestEntity( args, ArticleList.class );
 		
@@ -90,12 +96,13 @@ final class ArticleRequest extends GraphQLRequest {
 		// Only searches field 'content'
 		// TODO: search title, summary etc. too
 		InputObject<String> where = new InputObject.Builder<String>()
-				.put("content_contains", searchterm)
-				.build();
+			.put("content_contains", searchterm)
+			.put("publish", "true")
+			.build();
 
 		Arguments args = new Arguments("articles", 
-				  new Argument<String>("sort", sort)
-				, new Argument<Object>("where", where) );
+			  new Argument<String>("sort", sort)
+			, new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, ArticleList.class); 
 	}
@@ -106,12 +113,12 @@ final class ArticleRequest extends GraphQLRequest {
 		if (fv.getMatch() == MatchType.CONTAINS) field = field + "_contains";
 		
 		InputObject<String> where = new InputObject.Builder<String>()
-				.put(field, fv.getValue())
-				.build();
+			.put(field, fv.getValue())
+			.build();
 		
 		Arguments args = new Arguments("articles", 
-				  new Argument<String>("sort", fv.getSort())
-				, new Argument<Object>("where", where) );
+			  new Argument<String>("sort", fv.getSort())
+			, new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, ArticleList.class); 
 	}

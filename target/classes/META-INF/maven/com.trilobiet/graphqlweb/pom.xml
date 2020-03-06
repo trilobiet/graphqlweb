@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.trilobiet</groupId>
 	<artifactId>graphqlweb</artifactId>
-	<version>0.0.23-SNAPSHOT</version>
+	<version>0.0.24-SNAPSHOT</version>
 	<name>GraphQLTest</name>
 	
 	<properties>
@@ -27,7 +27,6 @@
 			<artifactId>nodes</artifactId>
 			<version>0.5.0</version>
 		</dependency>
-		
 	
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>

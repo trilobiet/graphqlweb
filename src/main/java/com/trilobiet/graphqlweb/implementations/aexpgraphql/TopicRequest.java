@@ -36,15 +36,22 @@ final class TopicRequest extends GraphQLRequest {
 		
 		Arguments args = new Arguments("topics", 
 			new Argument<String>("sort", "slug:asc"),
-			new Argument<Object>("where", where) );
+			new Argument<Object>("where", where) 
+		);
 		
 		return getRequestEntity( args, TopicList.class); 
 	}
 
 	GraphQLRequestEntity getListSectionsRequest() throws DaoException {
 		
+		InputObject<String> where = new InputObject.Builder<String>()
+			.put("publish", "true")
+			.build();
+
 		Arguments args = new Arguments("sections", 
-			new Argument<String>("sort", "groupNumber:asc,index:asc,name:asc") );
+			new Argument<String>("sort", "groupNumber:asc,index:asc,name:asc"),
+			new Argument<Object>("where", where) 
+		);
 		
 		return getRequestEntity( args, SectionList.class ); 
 	}
@@ -66,14 +73,13 @@ final class TopicRequest extends GraphQLRequest {
 	GraphQLRequestEntity getListBySectionRequest(Section section, String sort) 
 			throws DaoException {
 
-		InputObject<String> deepFilter = new InputObject.Builder<String>()
+		InputObject<String> nestedWhere = new InputObject.Builder<String>()
 			.put("name",section.getName())
-			.put("publish", "true")
 			.build();
 		
 		InputObject<Object> where = new InputObject.Builder<Object>()
 			.put("publish", "true")
-			.put("sections", deepFilter)
+			.put("sections", nestedWhere)
 			.build();
 		
 		Arguments args = new Arguments("topics", 
@@ -116,6 +122,15 @@ final class TopicRequest extends GraphQLRequest {
 			, new Argument<Object>("where", where) );
 		
 		return getRequestEntity( args, TopicList.class); 
+	}
+	
+	
+	public static void main(String[] args) throws DaoException {
+		
+		TopicRequest r = new TopicRequest("https://oapen-cms.trilobiet.eu/graphql");
+		Section s = new Section();
+		GraphQLRequestEntity q = r.getListBySectionRequest(s,"index:asc");
+		System.out.println(q);
 	}
 	
 }

@@ -12,6 +12,9 @@ import com.trilobiet.graphqlweb.datamodel.Topic;
  * Tests for correctness of GraphQL query requests based on model
  * objects. 
  * 
+ * NOTE: GraphQL is NOT Json - known testers here are not useable...
+ * TODO find some tester for GraphQL
+ * 
  * @author acdhirr
  *
  */
@@ -44,9 +47,9 @@ public class ArticleRequestTests {
 		ArticleRequest aq = new ArticleRequest(dummyhost);
 
 		String actualRequest = aq.getGetBySlugRequest(slug).getRequest().trim();
-		String expectedHeadOfRequest = "query { articles (sort:\"slug:asc\",where:{slug:\"12345-whatever\"}) { "; // field names in between
+		String expectedHeadOfRequest = "query { articles (sort:\"slug:asc\",where:{publish:\"true\",slug:\"12345-whatever\"}) { "; // field names in between
 		String expectedTailOfRequest = "} }";
-
+		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
@@ -75,9 +78,9 @@ public class ArticleRequestTests {
 		cat.setName("TESTCAT");
 
 		String actualRequest = aq.getListByCategoryRequest(cat,"title:asc").getRequest().trim();
-		String expectedHeadOfRequest = "query { articles (sort:\"title:asc\",where:{categories:{name:\"TESTCAT\"}}) {"; // field names in between
+		String expectedHeadOfRequest = "query { articles (sort:\"title:asc\",where:{publish:\"true\",categories:{name:\"TESTCAT\"}}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
-
+		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}
@@ -92,7 +95,7 @@ public class ArticleRequestTests {
 		top.setName("simsalabim");
 
 		String actualRequest = aq.getListByTopicRequest(top,"title:desc").getRequest().trim();
-		String expectedHeadOfRequest = "query { articles (sort:\"title:desc\",where:{topics:{name:\"simsalabim\"}}) {"; // field names in between
+		String expectedHeadOfRequest = "query { articles (sort:\"title:desc\",where:{topics:{name:\"simsalabim\"},publish:\"true\"}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
@@ -106,7 +109,7 @@ public class ArticleRequestTests {
 		ArticleRequest aq = new ArticleRequest(dummyhost);
 		
 		String actualRequest = aq.getFindRequest("nonsense", "title:desc").getRequest().trim();
-		String expectedHeadOfRequest = "query { articles (sort:\"title:desc\",where:{content_contains:\"nonsense\"}) {"; // field names in between
+		String expectedHeadOfRequest = "query { articles (sort:\"title:desc\",where:{publish:\"true\",content_contains:\"nonsense\"}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
 		
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );

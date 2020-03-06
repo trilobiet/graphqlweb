@@ -1,6 +1,7 @@
 package com.trilobiet.graphqlweb.datamodel;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -76,7 +77,10 @@ public class Section {
 	}
 
 	public void setTopics(List<Topic> topics) {
-		this.topics = topics;
+		
+		// only published Topics!
+		this.topics = topics.stream().
+			filter(t -> t.isPublish()).collect(Collectors.toList());
 	}
 	
 	public List<Translation> getTranslations() {

@@ -8,7 +8,8 @@
           {
             "id": "223",
             "slug": "/article1",
-            "title": "Article 1"
+            "title": "Article 1",
+			"publish": "true"
           }
         ]
       },
@@ -19,7 +20,8 @@
           {
             "id": "224",
             "slug": "/article2",
-            "title": "Article 2"
+            "title": "Article 2",
+			"publish": "true"
           }
         ]
       },
@@ -30,7 +32,8 @@
           {
             "id": "225",
             "slug": "/article3",
-            "title": "Article 3"
+            "title": "Article 3",
+			"publish": "true"
           }
         ]
       }
