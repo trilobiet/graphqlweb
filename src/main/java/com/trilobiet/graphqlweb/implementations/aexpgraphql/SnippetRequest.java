@@ -1,7 +1,6 @@
 package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
-import com.trilobiet.graphqlweb.datamodel.Topic;
 
 import io.aexp.nodes.graphql.Argument;
 import io.aexp.nodes.graphql.Arguments;

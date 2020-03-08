@@ -70,7 +70,9 @@ public class GraphQLTopicDao implements TopicDao {
 
 		TopicRequest q = new TopicRequest(host);
 		GraphQLRequestEntity req = q.getGetBySlugRequest(slug);
-		return Optional.ofNullable(TopicResponse.getTopics(req).get(0));
+		List<Topic> list = TopicResponse.getTopics(req);
+		if(!list.isEmpty()) return Optional.of(list.get(0));
+		else return Optional.empty();
 	}
 
 	@Override
@@ -78,8 +80,9 @@ public class GraphQLTopicDao implements TopicDao {
 
 		TopicRequest q = new TopicRequest(host);
 		GraphQLRequestEntity req = q.getSectionBySlugRequest(slug);
-		return Optional.ofNullable(TopicResponse.getSections(req).get(0));
+		List<Section> list = TopicResponse.getSections(req);
+		if(!list.isEmpty())return Optional.of(list.get(0));		
+		else return Optional.empty();
 	}
-	
 	
 }

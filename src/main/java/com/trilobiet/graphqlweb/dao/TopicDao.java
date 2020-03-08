@@ -3,7 +3,6 @@ package com.trilobiet.graphqlweb.dao;
 import java.util.List;
 import java.util.Optional;
 
-import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 

@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.FieldValueQuery;
 import com.trilobiet.graphqlweb.dao.FileDao;
-import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.File;
 
 import io.aexp.nodes.graphql.GraphQLRequestEntity;
@@ -28,11 +27,11 @@ public class GraphQLFileDao implements FileDao {
 	}
 	
 	@Override
-	public Optional<File> getByName(String slug) throws DaoException {
+	public List<File> getByName(String slug) throws DaoException {
 
 		FileRequest q = new FileRequest(host);
 		GraphQLRequestEntity req = q.getGetByNameRequest(slug);
-		return Optional.ofNullable(FileResponse.getFiles(req).get(0));
+		return FileResponse.getFiles(req);
 	}
 
 	@Override

@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.FieldValueQuery;
-import com.trilobiet.graphqlweb.dao.FieldValueQuery.MatchType;
 import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Category;
 import com.trilobiet.graphqlweb.datamodel.Topic;
@@ -79,7 +78,9 @@ public class GraphQLArticleDao implements ArticleDao {
 
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getGetBySlugRequest(slug);
-		return Optional.ofNullable(ArticleResponse.getArticles(req).get(0));
+		List<Article> list = ArticleResponse.getArticles(req);
+		if(!list.isEmpty()) return Optional.of(list.get(0));
+		else return Optional.empty();
 	}
 	
 }

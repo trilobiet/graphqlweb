@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
-import com.trilobiet.graphqlweb.datamodel.Category;
-import com.trilobiet.graphqlweb.datamodel.Topic;
 
 /**
  * Tests for correctness of GraphQL query requests based on model
@@ -50,7 +48,6 @@ public class SnippetRequestTests {
 		String expectedHeadOfRequest = "query { snippets (sort:\"name:asc\",where:{name:\"whatever\"}) {"; // field names in between
 		String expectedTailOfRequest = "} }";
 
-		System.out.println(actualRequest);
 		assertTrue( actualRequest.startsWith(expectedHeadOfRequest) );
 		assertTrue( actualRequest.endsWith(expectedTailOfRequest) );
 	}

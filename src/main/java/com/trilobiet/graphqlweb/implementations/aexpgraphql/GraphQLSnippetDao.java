@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.SnippetDao;
-import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 
 import io.aexp.nodes.graphql.GraphQLRequestEntity;
@@ -31,7 +30,9 @@ public class GraphQLSnippetDao implements SnippetDao {
 
 		SnippetRequest q = new SnippetRequest(host);
 		GraphQLRequestEntity req = q.getGetByNameRequest(slug);
-		return Optional.ofNullable(SnippetResponse.getSnippets(req).get(0));
+		List<Snippet> list = SnippetResponse.getSnippets(req);
+		if(!list.isEmpty()) return Optional.of(list.get(0));
+		else return Optional.empty();
 	}
 
 	@Override

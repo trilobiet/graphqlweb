@@ -125,8 +125,6 @@ public class GraphQLDaoTest {
 		enqueueResponseFromResourceFile("snippet-test-1.json");
 		Snippet snip = dao.get("mockid").get(); // Optional!
 		
-		System.out.println(snip);
-		
 		assertThat(snip, hasProperty("name", is("a_snippet")));
 		assertThat(snip, hasProperty("code"));
 	}
@@ -138,8 +136,6 @@ public class GraphQLDaoTest {
     	FileDao dao = new GraphQLFileDao( host );
 		enqueueResponseFromResourceFile("file-test-1.json");
 		File file = dao.get("mockid").get(); // Optional!
-		
-		System.out.println(file);
 		
 		assertThat(file, hasProperty("name", is("file.png")));
 		assertThat(file, hasProperty("mime"));

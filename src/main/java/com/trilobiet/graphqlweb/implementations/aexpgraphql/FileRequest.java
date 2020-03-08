@@ -3,7 +3,6 @@ package com.trilobiet.graphqlweb.implementations.aexpgraphql;
 import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.FieldValueQuery;
 import com.trilobiet.graphqlweb.dao.FieldValueQuery.MatchType;
-import com.trilobiet.graphqlweb.datamodel.Section;
 
 import io.aexp.nodes.graphql.Argument;
 import io.aexp.nodes.graphql.Arguments;
