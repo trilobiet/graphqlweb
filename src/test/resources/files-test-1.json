@@ -1,0 +1,22 @@
+{
+  "data": {
+    "files": [
+      {
+        "ext": ".png",
+        "provider": "local",
+        "mime": "image/png",
+        "name": "myimage.png",
+        "id": "5dfb708becfdee000cbaf236",
+        "url": "http://localhost:1337/uploads/344b6765cc91465e9f59ea0fd0e079a0.png"
+      },
+      {
+        "ext": ".png",
+        "provider": "local",
+        "mime": "image/png",
+        "name": "yourimage.png",
+        "id": "5e17307312eb6a02abf24e15",
+        "url": "http://localhost:1337/uploads/fdd27ff1cdf64c70ab7fe0194b7bb48b.png"
+      }
+    ]
+  }
+}

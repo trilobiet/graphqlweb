@@ -14,6 +14,7 @@ public class Article extends ArticleOutline {
 	private int index;
 	private boolean hasMenuItem, spotlight;
 	private ArticleOutline prevArticle, nextArticle;
+	private List<File> media;
 	
 	public String getContent() {
 		return content;
@@ -94,6 +95,14 @@ public class Article extends ArticleOutline {
 	public void setNextArticle(ArticleOutline nextArticle) {
 		this.nextArticle = nextArticle;
 	}
+
+	public List<File> getMedia() {
+		return media;
+	}
+
+	public void setMedia(List<File> media) {
+		this.media = media;
+	}
 	
 	@Override
 	public String toString() {
@@ -102,5 +111,5 @@ public class Article extends ArticleOutline {
 				+ " prev=" + prevArticle + " next=" + nextArticle 
 				+ "]";
 	}
-	
+
 }

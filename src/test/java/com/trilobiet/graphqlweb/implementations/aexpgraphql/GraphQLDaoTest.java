@@ -19,9 +19,11 @@ import org.junit.Test;
 
 import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
+import com.trilobiet.graphqlweb.dao.FileDao;
 import com.trilobiet.graphqlweb.dao.SnippetDao;
 import com.trilobiet.graphqlweb.dao.TopicDao;
 import com.trilobiet.graphqlweb.datamodel.Category;
+import com.trilobiet.graphqlweb.datamodel.File;
 import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 import com.trilobiet.graphqlweb.datamodel.Topic;
@@ -123,9 +125,26 @@ public class GraphQLDaoTest {
 		enqueueResponseFromResourceFile("snippet-test-1.json");
 		Snippet snip = dao.get("mockid").get(); // Optional!
 		
+		System.out.println(snip);
+		
 		assertThat(snip, hasProperty("name", is("a_snippet")));
 		assertThat(snip, hasProperty("code"));
 	}
+    
+
+    @Test
+	public void get_file_test() throws IOException, DaoException {
+    	
+    	FileDao dao = new GraphQLFileDao( host );
+		enqueueResponseFromResourceFile("file-test-1.json");
+		File file = dao.get("mockid").get(); // Optional!
+		
+		System.out.println(file);
+		
+		assertThat(file, hasProperty("name", is("file.png")));
+		assertThat(file, hasProperty("mime"));
+	}
+    
     
     
     @Test

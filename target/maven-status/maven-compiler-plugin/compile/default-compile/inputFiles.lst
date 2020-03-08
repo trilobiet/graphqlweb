@@ -24,6 +24,7 @@
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/SnippetImp.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/playground/Main.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/TopicResponse.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/Media.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/GraphQLFieldValueQuery.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/Section.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/SectionList.java

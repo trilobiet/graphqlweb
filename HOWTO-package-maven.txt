@@ -1,0 +1,3 @@
+
+Run from Eclipse: 
+	Run as -> maven install

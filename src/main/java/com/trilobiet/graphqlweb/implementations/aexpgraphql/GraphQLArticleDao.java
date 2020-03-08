@@ -63,8 +63,6 @@ public class GraphQLArticleDao implements ArticleDao {
 		
 		ArticleRequest q = new ArticleRequest(host);
 		GraphQLRequestEntity req = q.getFindRequest(fv);
-		
-		System.out.println(req);
 		return ArticleResponse.getArticles(req);
 	}
 	
@@ -84,29 +82,4 @@ public class GraphQLArticleDao implements ArticleDao {
 		return Optional.ofNullable(ArticleResponse.getArticles(req).get(0));
 	}
 	
-	
-	
-	public static void main(String...strings ) throws DaoException {
-		
-		String url = "your.url.com";
-		
-		GraphQLArticleDao dao = new GraphQLArticleDao(url);
-		/*
-		System.out.println(dao.get("5e1dce7d2bb811000b64ef4f"));
-		Category cat = new Category();
-		cat.setName("FUNDERS");
-		System.out.println(dao.list(cat, "name:asc"));
-		*/
-		
-		GraphQLFieldValueQuery q = 
-				new GraphQLFieldValueQuery.Builder("content", "and")
-				.setMatchType(MatchType.CONTAINS)
-				.setSort("index:DESC")
-				.build();
-		
-		List<Article> r = dao.find(q);
-		r.forEach(System.out::println);
-		
-	}
-
 }
