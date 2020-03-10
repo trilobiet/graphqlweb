@@ -124,13 +124,4 @@ final class TopicRequest extends GraphQLRequest {
 		return getRequestEntity( args, TopicList.class); 
 	}
 	
-	
-	public static void main(String[] args) throws DaoException {
-		
-		TopicRequest r = new TopicRequest("https://oapen-cms.trilobiet.eu/graphql");
-		Section s = new Section();
-		GraphQLRequestEntity q = r.getListBySectionRequest(s,"index:asc");
-		System.out.println(q);
-	}
-	
 }

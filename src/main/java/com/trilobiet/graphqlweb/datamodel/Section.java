@@ -73,11 +73,11 @@ public class Section {
 	}
 
 	public List<Topic> getTopics() {
+		topics.sort(new TopicComparator());
 		return topics;
 	}
 
 	public void setTopics(List<Topic> topics) {
-		
 		// only published Topics!
 		this.topics = topics.stream().
 			filter(t -> t.isPublish()).collect(Collectors.toList());

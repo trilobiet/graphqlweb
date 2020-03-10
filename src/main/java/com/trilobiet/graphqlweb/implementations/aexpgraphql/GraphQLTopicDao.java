@@ -53,7 +53,6 @@ public class GraphQLTopicDao implements TopicDao {
 		
 		TopicRequest q = new TopicRequest(host);
 		GraphQLRequestEntity req = q.getFindRequest(fv);
-		System.out.println(req);
 		return TopicResponse.getTopics(req);
 	}
 	

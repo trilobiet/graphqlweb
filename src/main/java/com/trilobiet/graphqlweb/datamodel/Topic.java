@@ -82,6 +82,7 @@ public class Topic {
 	}
 
 	public List<ArticleOutline> getArticles() {
+		articles.sort(new ArticleComparator());
 		return articles;
 	}
 
