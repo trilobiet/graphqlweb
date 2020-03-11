@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.trilobiet</groupId>
 	<artifactId>graphqlweb</artifactId>
-	<version>0.0.31-SNAPSHOT</version>
+	<version>0.0.35-SNAPSHOT</version>
 	<name>GraphQLTest</name>
 	
 	<properties>

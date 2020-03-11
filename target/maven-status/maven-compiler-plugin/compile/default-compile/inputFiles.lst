@@ -28,6 +28,7 @@
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/playground/SiteStructure.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/Translation.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/GraphQLResponse.java
+/home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/NormalizedComparator.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/GraphQLRequest.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/datamodel/SectionComparator.java
 /home/acdhirr/JavaProjects2017/graphqlweb/src/main/java/com/trilobiet/graphqlweb/implementations/aexpgraphql/TopicImp.java

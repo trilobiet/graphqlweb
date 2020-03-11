@@ -1,11 +1,8 @@
 package com.trilobiet.graphqlweb.datamodel;
 
-import java.text.Normalizer;
 import java.util.Comparator;
 
-import com.trilobiet.graphqlweb.datamodel.SortableArticle;
-
-public class ArticleComparator implements Comparator<SortableArticle> {
+public class ArticleComparator implements NormalizedComparator<SortableArticle> {
 
 	@Override
 	public int compare(SortableArticle a1, SortableArticle a2) {
@@ -15,19 +12,10 @@ public class ArticleComparator implements Comparator<SortableArticle> {
 				// negate, because true must be on top
 				Comparator.comparing(article -> !article.isTopicLead()); 
 		c = c.thenComparing( article -> article.getIndex() );
-		c = c.thenComparing( article -> normalized(article.getTitle() ) );
+		c = c.thenComparing( article -> normalized(article.getTitle().trim() ) );
 		// add more comparisons if needed
 
 		return c.compare(a1, a2);
-	}
-	
-	/*
-	 * Normalize special (accented) characters
-	 */
-	private String normalized(String s) {
-		
-		if (s != null) return Normalizer.normalize(s, Normalizer.Form.NFD);
-		else return "";
 	}
 
 }
