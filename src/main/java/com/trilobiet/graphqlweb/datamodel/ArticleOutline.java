@@ -102,7 +102,9 @@ public class ArticleOutline implements SortableArticle  {
 
 	@Override
 	public String toString() {
-		return "ArticleOutline [index=" + index + ", slug=" + slug + ", title=" + title + "]";
+		return "ArticleOutline [slug=" + slug + ", title=" + title 
+				+ ", language=" + language + ", index=" + index
+				+ ", publish=" + publish + ", topicLead=" + topicLead + "]";
 	}
-	
+
 }

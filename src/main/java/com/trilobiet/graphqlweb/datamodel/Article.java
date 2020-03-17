@@ -11,10 +11,10 @@ public class Article extends ArticleOutline {
 
 	private String content, tags, cssClass, params, externalLink;
 	private List<Category> categories;
-	private int index;
 	private boolean hasMenuItem, spotlight;
 	private ArticleOutline prevArticle, nextArticle;
 	private List<File> media;
+	private List<Snippet> snippets;
 	
 	public String getContent() {
 		return content;
@@ -104,12 +104,12 @@ public class Article extends ArticleOutline {
 		this.media = media;
 	}
 	
-	@Override
-	public String toString() {
-		return "Article [index=" + index + ", slug=" + getSlug() 
-				+ ", language=" + getLanguage() 
-				+ " prev=" + prevArticle + " next=" + nextArticle 
-				+ "]";
+	public List<Snippet> getSnippets() {
+		return snippets;
+	}
+
+	public void setSnippets(List<Snippet> snippets) {
+		this.snippets = snippets;
 	}
 
 }

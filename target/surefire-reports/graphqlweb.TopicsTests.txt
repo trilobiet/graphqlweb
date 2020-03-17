@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: graphqlweb.TopicsTests
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.487 s <<< FAILURE! - in graphqlweb.TopicsTests
-testNothing(graphqlweb.TopicsTests)  Time elapsed: 0.012 s  <<< FAILURE!
-java.lang.AssertionError: These are not the same,  expected:<1> but was:<2>
-	at graphqlweb.TopicsTests.testNothing(TopicsTests.java:45)
-
