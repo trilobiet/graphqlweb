@@ -16,17 +16,9 @@ public class GraphQLFieldValueQuery implements FieldValueQuery {
 		return field;
 	}
 
-	public void setField(String field) {
-		this.field = field;
-	}
-
 	@Override
 	public String getValue() {
 		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
 	}
 
 	@Override
@@ -34,17 +26,9 @@ public class GraphQLFieldValueQuery implements FieldValueQuery {
 		return sort;
 	}
 
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-
 	@Override
 	public MatchType getMatch() {
 		return matchtype;
-	}
-
-	public void setMatch(MatchType matchtype) {
-		this.matchtype = matchtype;
 	}
 
 	public static class Builder {

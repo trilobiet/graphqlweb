@@ -112,4 +112,9 @@ public class Article extends ArticleOutline {
 		this.snippets = snippets;
 	}
 
+	@Override
+	public String toString() {
+		return "Article [toString()=" + super.toString() + "]";
+	}
+	
 }
