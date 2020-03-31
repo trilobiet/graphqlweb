@@ -4,3 +4,4 @@
 .directory
 .project
 .gitignore
+/HOWTO-package-maven.txt
