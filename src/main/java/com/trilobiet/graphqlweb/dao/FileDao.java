@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import com.trilobiet.graphqlweb.datamodel.File;
 
-public interface FileDao {
+public interface FileDao<T extends File> {
 
-	Optional<File> get(String id) throws DaoException;
-	List<File> getByName(String id) throws DaoException;
-	List<File> find(FieldValueQuery q) throws DaoException;
+	Optional<T> get(String id) throws DaoException;
+	List<T> getByName(String id) throws DaoException;
+	List<T> find(FieldValueQuery q) throws DaoException;
 }

@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 
-public interface SnippetDao {
+public interface SnippetDao<T extends Snippet> {
 
-	List<Snippet> list() throws DaoException;
-	Optional<Snippet> get(String id) throws DaoException;
-	Optional<Snippet> getByName(String id) throws DaoException;
+	List<T> list() throws DaoException;
+	Optional<T> get(String id) throws DaoException;
+	Optional<T> getByName(String id) throws DaoException;
 }

@@ -1,4 +1,4 @@
-package com.trilobiet.graphqlweb.implementations.aexpgraphql;
+package com.trilobiet.graphqlweb.implementations.aexpgraphql2;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,17 +17,28 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
-import com.trilobiet.graphqlweb.dao.FileDao;
-import com.trilobiet.graphqlweb.dao.SnippetDao;
-import com.trilobiet.graphqlweb.dao.TopicDao;
-import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Category;
 import com.trilobiet.graphqlweb.datamodel.File;
 import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 import com.trilobiet.graphqlweb.datamodel.Topic;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.GenericArticleDao;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.GenericArticleList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.FileImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.FileList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.GenericFileDao;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.GenericFileList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.GenericSnippetDao;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.GenericSnippetList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.SnippetImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.SnippetList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.GenericTopicDao;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.GenericTopicList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicList;
 
 import io.aexp.nodes.graphql.GraphQLRequestEntity;
 import io.aexp.nodes.graphql.GraphQLResponseEntity;
@@ -59,7 +70,9 @@ public class GraphQLDaoTest {
     @Test
 	public void list_categories_test() throws IOException, DaoException {
     	
-    	ArticleDao<Article> dao = new GraphQLArticleDao( host );
+    	GenericArticleDao<ArticleImp, GenericArticleList<ArticleImp>> dao 
+			= new GenericArticleDao<>(host, ArticleImp.class, ArticleList.class);
+    	
     	enqueueResponseFromResourceFile("categories-test-1.json");
 		List<Category> categories = dao.listCategories();
 		
@@ -75,10 +88,12 @@ public class GraphQLDaoTest {
     @Test
 	public void list_topics_test() throws IOException, DaoException {
     	
-    	TopicDao<Topic> dao = new GraphQLTopicDao( host );
+    	GenericTopicDao<TopicImp, GenericTopicList<TopicImp>> dao 
+			= new GenericTopicDao<>(host, TopicImp.class, TopicList.class);
+
     	enqueueResponseFromResourceFile("topics-test-1.json");
     	Section mocksec = new Section();
-		List<Topic> topics = dao.list(mocksec, "");
+		List<? extends Topic> topics = dao.list(mocksec, "");
 		
 		assertThat(topics, containsInAnyOrder(
                 hasProperty("name", is("Topic 1")),
@@ -93,7 +108,9 @@ public class GraphQLDaoTest {
     @Test
 	public void get_topic_test() throws IOException, DaoException {
     	
-    	TopicDao<Topic> dao = new GraphQLTopicDao( host );
+    	GenericTopicDao<TopicImp, GenericTopicList<TopicImp>> dao 
+		= new GenericTopicDao<>(host, TopicImp.class, TopicList.class);
+    	
 		enqueueResponseFromResourceFile("topic-test-1.json");
 		Topic topic = dao.get("mockid").get(); // Optional!
 		
@@ -108,9 +125,11 @@ public class GraphQLDaoTest {
     @Test
 	public void list_snippets_test() throws IOException, DaoException {
     	
-    	SnippetDao<Snippet> dao = new GraphQLSnippetDao( host );
+    	GenericSnippetDao<SnippetImp, GenericSnippetList<SnippetImp>> dao 
+			= new GenericSnippetDao<>(host, SnippetImp.class, SnippetList.class);
+    	
     	enqueueResponseFromResourceFile("snippets-test-1.json");
-		List<Snippet> snippets = dao.list();
+		List<? extends Snippet> snippets = dao.list();
 		
 		assertThat(snippets, containsInAnyOrder(
                 hasProperty("name", is("a_snippet")),
@@ -122,8 +141,10 @@ public class GraphQLDaoTest {
     @Test
 	public void get_snippet_test() throws IOException, DaoException {
     	
-    	SnippetDao<Snippet> dao = new GraphQLSnippetDao( host );
-		enqueueResponseFromResourceFile("snippet-test-1.json");
+    	GenericSnippetDao<SnippetImp, GenericSnippetList<SnippetImp>> dao 
+			= new GenericSnippetDao<>(host, SnippetImp.class, SnippetList.class);
+
+    	enqueueResponseFromResourceFile("snippet-test-1.json");
 		Snippet snip = dao.get("mockid").get(); // Optional!
 		
 		assertThat(snip, hasProperty("name", is("a_snippet")));
@@ -134,7 +155,9 @@ public class GraphQLDaoTest {
     @Test
 	public void get_file_test() throws IOException, DaoException {
     	
-    	FileDao<File> dao = new GraphQLFileDao( host );
+    	GenericFileDao<FileImp, GenericFileList<FileImp>> dao 
+			= new GenericFileDao<>(host, FileImp.class, FileList.class);
+
 		enqueueResponseFromResourceFile("file-test-1.json");
 		File file = dao.get("mockid").get(); // Optional!
 		
@@ -147,7 +170,9 @@ public class GraphQLDaoTest {
     @Test
 	public void list_sections_test() throws IOException, DaoException {
     	
-    	TopicDao<Topic> dao = new GraphQLTopicDao( host );
+    	GenericTopicDao<TopicImp, GenericTopicList<TopicImp>> dao 
+    		= new GenericTopicDao<>(host, TopicImp.class, TopicList.class);
+    	
     	enqueueResponseFromResourceFile("sections-test-1.json");
 		List<? extends Section> sections = dao.listSections();
 		
@@ -165,7 +190,9 @@ public class GraphQLDaoTest {
     @Test
 	public void get_section_test() throws IOException, DaoException {
     	
-    	TopicDao<Topic> dao = new GraphQLTopicDao( host );
+    	GenericTopicDao<TopicImp, GenericTopicList<TopicImp>> dao 
+    		= new GenericTopicDao<>(host, TopicImp.class, TopicList.class);
+
 		enqueueResponseFromResourceFile("sections-test-1.json");
 		Section section = dao.getSectionBySlug("lalala").get(); // Optional!
 		
@@ -216,6 +243,4 @@ public class GraphQLDaoTest {
         
         return resp;
     }
-	
-	
 }
