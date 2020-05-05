@@ -12,7 +12,7 @@ public class ArticleComparator implements NormalizedComparator<SortableArticle> 
 				// negate, because true must be on top
 				Comparator.comparing(article -> !article.isTopicLead()); 
 		c = c.thenComparing( article -> article.getIndex() );
-		c = c.thenComparing( article -> normalized(article.getTitle().trim() ) );
+		c = c.thenComparing( article -> normalized(article.getTitle().trim() ), String.CASE_INSENSITIVE_ORDER );
 		// add more comparisons if needed
 
 		return c.compare(a1, a2);
