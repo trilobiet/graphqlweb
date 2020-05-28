@@ -4,19 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 import com.trilobiet.graphqlweb.datamodel.Section;
-import com.trilobiet.graphqlweb.datamodel.Topic;
 
 /**
  * 
  * @author acdhirr
  *
  */
-public interface TopicDao<T extends Topic> {
+public interface SectionDao<T extends Section> {
 
-	List<T> list(Section section, String sort) throws DaoException;
-	List<T> find(String searchterm, String sort) throws DaoException;
-	List<T> find(FieldValueQuery q) throws DaoException;
-	
+	List<T> list() throws DaoException;
+
 	Optional<T> get(String id) throws DaoException;
 	Optional<T> getBySlug(String slug) throws DaoException;
 }

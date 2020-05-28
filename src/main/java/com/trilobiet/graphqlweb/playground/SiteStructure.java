@@ -3,16 +3,18 @@ package com.trilobiet.graphqlweb.playground;
 import java.util.Collection;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
-import com.trilobiet.graphqlweb.datamodel.Section;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.GraphQLTopicDao;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.GenericSectionDao;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionList;
 
 public class SiteStructure {
 
 	public static void main(String... strings) throws DaoException {
 		
-		GraphQLTopicDao dao = new GraphQLTopicDao("http://localhost:1337/graphql");
+		GenericSectionDao<SectionImp> dao 
+			= new GenericSectionDao<>("http://localhost:1337/graphql",SectionImp.class,SectionList.class);
 		
-		Collection<Section> secs = dao.listSections();
+		Collection<SectionImp> secs = dao.list();
 		
 		String ind = "          ";
 		

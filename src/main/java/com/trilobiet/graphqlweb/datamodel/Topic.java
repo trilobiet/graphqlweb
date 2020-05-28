@@ -3,6 +3,8 @@ package com.trilobiet.graphqlweb.datamodel;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.trilobiet.graphqlweb.datamodel.comparator.ArticleComparator;
+
 /**
  * 
  * @author acdhirr

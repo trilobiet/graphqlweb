@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.FieldValueQuery;
 import com.trilobiet.graphqlweb.dao.FileDao;
-import com.trilobiet.graphqlweb.datamodel.File;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.GraphQLRequest;
 
 import io.aexp.nodes.graphql.Arguments;
@@ -14,13 +13,13 @@ import io.aexp.nodes.graphql.GraphQLRequestEntity;
 import io.aexp.nodes.graphql.GraphQLResponseEntity;
 import io.aexp.nodes.graphql.GraphQLTemplate;
 
-public class GenericFileDao<T extends FileImp, U extends GenericFileList<T>> implements FileDao<T> {
+public class GenericFileDao<T extends FileImp> implements FileDao<T> {
 	
 	private String host;
-	private Class<? extends T> clazz;
+	private Class<T> clazz;
 	private Class<? extends GenericFileList<T>> listClazz;
 	
-	public GenericFileDao(String host, Class<? extends T> clazz, Class<? extends GenericFileList<T>> listClazz ) {
+	public GenericFileDao(String host, Class<T> clazz, Class<? extends GenericFileList<T>> listClazz ) {
 		this.host = host;
 		this.clazz = clazz;
 		this.listClazz = listClazz;

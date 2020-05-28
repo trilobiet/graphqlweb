@@ -3,13 +3,12 @@ package com.trilobiet.graphqlweb.playground;
 import java.net.MalformedURLException;
 import java.util.List;
 
-import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Section;
-import com.trilobiet.graphqlweb.datamodel.Topic;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.ArticleImp;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.ArticleList;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.SectionImp;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql.TopicList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleList;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicList;
 
 import io.aexp.nodes.graphql.Argument;
 import io.aexp.nodes.graphql.Arguments;
@@ -74,7 +73,7 @@ public class Main {
 		System.out.println("TWEE: " +requestEntity2);
 		GraphQLResponseEntity<ArticleList> responseEntity2 = graphQLTemplate.query(requestEntity2, ArticleList.class);
 		
-		List<Article> articles = responseEntity2.getResponse().getArticles();
+		List<ArticleImp> articles = responseEntity2.getResponse().getArticles();
 		
 		System.out.println("Articles: -----------------------------------------------------------------------------");
 		System.out.println(articles);
@@ -92,7 +91,7 @@ public class Main {
 		System.out.println(requestEntity3);
 		GraphQLResponseEntity<TopicList> responseEntity3 = graphQLTemplate.query(requestEntity3, TopicList.class);
 		
-		List<Topic> topics = responseEntity3.getResponse().getTopics();
+		List<TopicImp> topics = responseEntity3.getResponse().getTopics();
 		System.out.println("Topics: -----------------------------------------------------------------------------");
 		System.out.println(topics);
 		

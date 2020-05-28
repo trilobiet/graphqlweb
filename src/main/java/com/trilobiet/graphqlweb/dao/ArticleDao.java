@@ -3,8 +3,8 @@ package com.trilobiet.graphqlweb.dao;
 import java.util.List;
 import java.util.Optional;
 
+import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Category;
-import com.trilobiet.graphqlweb.datamodel.SortableArticle;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 
 /**
@@ -12,7 +12,7 @@ import com.trilobiet.graphqlweb.datamodel.Topic;
  * @author acdhirr
  *
  */
-public interface ArticleDao<T extends SortableArticle> {
+public interface ArticleDao<T extends Article> {
 
 	List<Category> listCategories() throws DaoException;
 	

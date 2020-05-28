@@ -14,37 +14,16 @@ import io.aexp.nodes.graphql.GraphQLRequestEntity;
 import io.aexp.nodes.graphql.GraphQLResponseEntity;
 import io.aexp.nodes.graphql.GraphQLTemplate;
 
-public class GenericTopicDao<T extends TopicImp, U extends GenericTopicList<T>> implements TopicDao<T> {
+public class GenericTopicDao<T extends TopicImp> implements TopicDao<T> {
 	
 	private String host;
-	private Class<? extends T> clazz;
+	private Class<T> clazz;
 	private Class<? extends GenericTopicList<T>> listClazz;
 	
-	public GenericTopicDao(String host, Class<? extends T> clazz, Class<? extends GenericTopicList<T>> listClazz ) {
+	public GenericTopicDao(String host, Class<T> clazz, Class<? extends GenericTopicList<T>> listClazz ) {
 		this.host = host;
 		this.clazz = clazz;
 		this.listClazz = listClazz;
-	}
-
-	@Override
-	public List<? extends Section> listSections() throws DaoException {
-
-		Arguments args = TopicArgs.getListSectionsArgs();
-		GraphQLRequestEntity requestEntity = new GraphQLRequest(host).getRequestEntity(args, SectionList.class);
-		SectionList sectionList = getSections(requestEntity);
-		return sectionList.getSections();
-	}
-
-	@Override
-	public Optional<? extends Section> getSectionBySlug(String slug) throws DaoException {
-		
-		Arguments args = TopicArgs.getSectionBySlugArgs(slug);
-		GraphQLRequestEntity requestEntity = new GraphQLRequest(host).getRequestEntity(args, SectionList.class);
-		
-		SectionList sectionList = getSections(requestEntity);
-		List<? extends Section> sections = sectionList.getSections();
-		if(!sections.isEmpty()) return Optional.of(sections.get(0));
-		else return Optional.empty();
 	}
 
 	@Override
@@ -94,13 +73,6 @@ public class GenericTopicDao<T extends TopicImp, U extends GenericTopicList<T>> 
 		else return Optional.empty();
 	}
 	
-	
-	private SectionList getSections(GraphQLRequestEntity requestEntity) throws DaoException {
-		
-		GraphQLTemplate graphQLTemplate = new GraphQLTemplate();
-		GraphQLResponseEntity<SectionList> responseEntity = graphQLTemplate.query(requestEntity, SectionList.class);
-		return responseEntity.getResponse();
-	}
 	
 	private T getTopic(GraphQLRequestEntity requestEntity) throws DaoException {
 		

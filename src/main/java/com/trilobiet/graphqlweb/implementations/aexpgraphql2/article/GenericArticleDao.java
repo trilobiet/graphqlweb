@@ -15,13 +15,13 @@ import io.aexp.nodes.graphql.GraphQLRequestEntity;
 import io.aexp.nodes.graphql.GraphQLResponseEntity;
 import io.aexp.nodes.graphql.GraphQLTemplate;
 
-public class GenericArticleDao<T extends ArticleImp, U extends GenericArticleList<T>> implements ArticleDao<T> {
+public class GenericArticleDao<T extends ArticleImp> implements ArticleDao<T> {
 		
 	private String host;
-	private Class<? extends T> clazz;
+	private Class<T> clazz;
 	private Class<? extends GenericArticleList<T>> listClazz;
 	
-	public GenericArticleDao(String host, Class<? extends T> clazz, Class<? extends GenericArticleList<T>> listClazz ) {
+	public GenericArticleDao(String host, Class<T> clazz, Class<? extends GenericArticleList<T>> listClazz ) {
 		this.host = host;
 		this.clazz = clazz;
 		this.listClazz = listClazz;
@@ -29,6 +29,7 @@ public class GenericArticleDao<T extends ArticleImp, U extends GenericArticleLis
 
 	@Override
 	public List<Category> listCategories() throws DaoException {
+		
 		Arguments args = ArticleArgs.getListCategoriesArgs();
 		GraphQLRequestEntity requestEntity = new GraphQLRequest(host).getRequestEntity(args, CategoryList.class);
 		CategoryList categoryList = getCategories(requestEntity);

@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.trilobiet</groupId>
 	<artifactId>graphqlweb</artifactId>
-	<version>0.0.37-generics-SNAPSHOT</version>
+	<version>0.0.38-generics-SNAPSHOT</version>
 	<name>GraphQLTest</name>
 	
 	<properties>
@@ -27,6 +27,30 @@
 			<artifactId>nodes</artifactId>
 			<version>0.5.0</version>
 		</dependency>
+	
+		<!-- Option 1: Markdown to HTML conversion -->
+		<dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark</artifactId>
+			<version>0.13.1</version>
+		</dependency>		
+		<!-- Option 1: Markdown to HTML Tables conversion -->
+		<dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark-ext-gfm-tables</artifactId>
+			<version>0.13.1</version>
+		</dependency>		
+		
+		<!-- Option 2: Markdown to HTML conversion -->
+		<dependency>
+		    <groupId>com.vladsch.flexmark</groupId>
+		    <artifactId>flexmark-all</artifactId>
+		    <version>0.60.2</version>
+		</dependency>		
+	
+		<!-- 
+			Test dependencies below
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
 	
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -65,7 +89,7 @@
 			<version>2.1</version>
 			<scope>test</scope>
 		</dependency>
-
+		
 	</dependencies>
 	
 	<build>
