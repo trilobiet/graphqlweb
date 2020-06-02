@@ -3,6 +3,7 @@ package com.trilobiet.graphqlweb.playground;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
 
 import io.aexp.nodes.graphql.annotations.GraphQLArgument;
+import io.aexp.nodes.graphql.annotations.GraphQLIgnore;
 import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 
 @GraphQLProperty(
@@ -12,6 +13,9 @@ import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 		}
 	)
 public class TKArticle extends ArticleImp {
+
+	@GraphQLIgnore
+	private static final long serialVersionUID = 1L;
 
 	/*
 	 * Only when references are truly in the db
