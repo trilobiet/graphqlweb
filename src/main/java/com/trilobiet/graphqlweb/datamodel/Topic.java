@@ -1,9 +1,6 @@
 package com.trilobiet.graphqlweb.datamodel;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
-import com.trilobiet.graphqlweb.datamodel.comparator.ArticleComparator;
 
 /**
  * 
@@ -14,7 +11,6 @@ public class Topic {
 
 	private String id, name, description, slug, cssClass, groupHeader, params, type;
 	private String articleDisplay;
-	private List<ArticleOutline> articles;
 	private List<Translation> translations;
 	private int index;
 	private boolean hasMenuItem, publish;
@@ -81,17 +77,6 @@ public class Topic {
 
 	public void setTranslations(List<Translation> translations) {
 		this.translations = translations;
-	}
-
-	public List<ArticleOutline> getArticles() {
-		articles.sort(new ArticleComparator());
-		return articles;
-	}
-
-	public void setArticles(List<ArticleOutline> articles) {
-		// only published Articles!
-		this.articles = articles.stream().
-			filter(a -> a.isPublish()).collect(Collectors.toList());
 	}
 
 	public String getGroupHeader() {
@@ -162,7 +147,7 @@ public class Topic {
 	
 	@Override
 	public String toString() {
-		return "Topic " + name + ", articles=" + articles + ", index=" + index + ", type=" + type + "]";
+		return "Topic " + name + ", index=" + index + ", type=" + type + "]";
 	}
 
 }

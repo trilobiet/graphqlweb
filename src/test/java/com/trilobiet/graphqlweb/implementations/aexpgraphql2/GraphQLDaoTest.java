@@ -92,7 +92,7 @@ public class GraphQLDaoTest {
 
     	enqueueResponseFromResourceFile("topics-test-1.json");
     	Section mocksec = new Section();
-		List<? extends Topic> topics = dao.list(mocksec, "");
+		List<? extends TopicImp> topics = dao.list(mocksec, "");
 		
 		assertThat(topics, containsInAnyOrder(
                 hasProperty("name", is("Topic 1")),
@@ -100,8 +100,6 @@ public class GraphQLDaoTest {
                 hasProperty("name", is("Topic 3"))
         ));	
 		
-        // Random deep test
-        assertEquals( topics.get(2).getArticles().get(0).getSlug(), "/article3" );
 	}
 
     @Test
@@ -114,11 +112,6 @@ public class GraphQLDaoTest {
 		Topic topic = dao.get("mockid").get(); // Optional!
 		
 		assertThat(topic, hasProperty("name", is("THE TOPIC")));
-		assertThat(topic, hasProperty("articles", Matchers.isA(List.class) ) );
-		assertThat(topic, hasProperty("articles", Matchers.hasSize(2) ) );
-		
-        // Random deep test
-        //assertEquals( topics.get(2).getArticles().get(0).getSlug(), "/article3" );
 	}
 
     @Test

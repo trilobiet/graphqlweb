@@ -47,7 +47,7 @@ class ArticleArgs {
 	static Arguments listByTopicArgs(Topic topic, String sort) {
 		
 		InputObject<String> nestedWhere = new InputObject.Builder<String>()
-				.put("name",topic.getName())
+				.put("slug",topic.getSlug())
 				.build();
 					
 		InputObject<Object> where = new InputObject.Builder<Object>()

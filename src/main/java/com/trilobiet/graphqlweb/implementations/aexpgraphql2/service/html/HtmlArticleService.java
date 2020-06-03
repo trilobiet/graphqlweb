@@ -2,6 +2,7 @@ package com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.html;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,7 @@ import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.ArticleOutline;
 import com.trilobiet.graphqlweb.datamodel.Category;
 import com.trilobiet.graphqlweb.datamodel.Topic;
+import com.trilobiet.graphqlweb.datamodel.comparator.ArticleComparator;
 import com.trilobiet.graphqlweb.datamodel.comparator.ArticleTitleComparator;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.GraphQLFieldValueQuery;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
@@ -58,7 +60,8 @@ public class HtmlArticleService<T extends ArticleImp> implements ArticleService<
 	@Override
 	public List<T> getArticlesByTopic(Topic topic) throws DaoException {
 		
-		List<T> articles = selectArticlesForTopic(topic);
+		List<T> articles = articleDao.list(topic, "index");
+		Collections.sort(articles,new ArticleComparator());
 		md2HtmlConverter.convertList(articles);
 		return articles;
 	}
@@ -100,32 +103,6 @@ public class HtmlArticleService<T extends ArticleImp> implements ArticleService<
 		
 		return articles;
 	}
-	
-	
-	private List<T> selectArticlesForTopic(Topic topic) throws DaoException {
-		
-		List<T> articles = new ArrayList<>();
-		String displaytype = topic.getArticleDisplay();
-		
-		if(displaytype == null || displaytype.equals("Show_list_of_articles")) {
-			articles = articleDao.list(topic, "index");
-		}
-
-		else if (displaytype.equals("Show_first_article") 
-			  || displaytype.equals("Show_lead_article_and_list_titles")) {
-			
-			List<ArticleOutline> aoList = topic.getArticles();
-			if (!aoList.isEmpty()) {
-				ArticleOutline ao = aoList.get(0);
-				Optional<T> first = articleDao.get(ao.getId());
-				if (first.isPresent()) articles.add(first.get());
-			}
-		}	
-		
-		// Other display options do not include articles, just an empty list
-		
-		return articles;
-	}		
 
 	
 	/**
@@ -135,7 +112,7 @@ public class HtmlArticleService<T extends ArticleImp> implements ArticleService<
 	 * @throws DaoException
 	 */
 	@Override
-	public Set<ArticleOutline> getLinked(T article) throws DaoException {
+	public Set<ArticleOutline> getLinked(Article article) throws DaoException {
 
 		Set<ArticleOutline> articles = new HashSet<>(); 
 		List<String> tagList = tagList( article );

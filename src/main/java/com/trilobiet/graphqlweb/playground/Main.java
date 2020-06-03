@@ -23,7 +23,7 @@ public class Main {
 
 		GraphQLTemplate graphQLTemplate = new GraphQLTemplate();
 		
-		// String theserver = "http://localhost:1337/graphql"
+		//String theserver = "http://localhost:1337/graphql";
 		String theserver = "https://oapen-cms.trilobiet.eu/graphql";
 		
 		System.out.println(graphQLTemplate);

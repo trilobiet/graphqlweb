@@ -37,19 +37,16 @@ public class HtmlFileService<T extends File> implements FileService<T> {
 	
 
 	@Override
-	// @Cacheable(value="filesCache")
 	public Optional<T> get(String id) throws DaoException {
 		return fileDao.get(id);
 	}
 
 	@Override
-	// @Cacheable(value="filesCache")
 	public List<T> getByName(String name) throws DaoException {
 		return fileDao.getByName( name );
 	}
 
 	@Override
-	// @Cacheable(value="filesCache")
 	public Optional<T> getFirstWithName(String name) throws DaoException {
 		
 		List<T> files = fileDao.getByName( name );
@@ -58,7 +55,6 @@ public class HtmlFileService<T extends File> implements FileService<T> {
 	}
 	
 	@Override
-	// @Cacheable(value="filesCache",key="#field+'-'+#value")
 	public List<T> getByFieldValue(String field, String value) throws DaoException {
 		
 		GraphQLFieldValueQuery q = 

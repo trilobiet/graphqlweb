@@ -40,7 +40,6 @@ public class HtmlTopicService<T extends TopicImp> implements TopicService<T> {
 	}
 	
 	@Override
-	// @Cacheable(value="topicsCache",key="#slug")
 	public Optional<T> getTopicBySlug(String slug) throws DaoException {
 		
 		Optional<T> otopic = topicDao.getBySlug(slug);

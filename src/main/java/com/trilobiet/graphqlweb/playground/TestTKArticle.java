@@ -18,7 +18,7 @@ public class TestTKArticle {
 		
 		String host = "http://localhost:1337/graphql";
 		Topic atopic = new Topic();
-		atopic.setName("Peer Review Policies ");
+		atopic.setSlug("5818238-peer-review-policies");
 		
 		TKArticleConverter<TKArticle> md2HtmlConverter = new TKArticleConverter<>(new Flexmark2HtmlFunction());
 

@@ -40,7 +40,6 @@ public class HtmlSectionService<T extends Section> implements SectionService<T> 
 	}
 
 	@Override
-	// @Cacheable(value="sectionsCache",key="#root.methodName")
 	public List<T> getSections() throws DaoException {
 
 		List<T> sections = sectionDao.list();
@@ -49,11 +48,10 @@ public class HtmlSectionService<T extends Section> implements SectionService<T> 
 	}
 
 	@Override
-	// @Cacheable(value="sectionsCache",key="#slug")
 	public Optional<T> getSectionBySlug(String slug) throws DaoException {
 
 		Optional<T> osection = sectionDao.getBySlug(slug);
-		if (osection.isPresent())	md2HtmlConverter.convert(osection.get());
+		if (osection.isPresent()) md2HtmlConverter.convert(osection.get());
 		return osection;
 	}
 

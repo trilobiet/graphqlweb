@@ -6,17 +6,7 @@
         "topics": [
           {
             "name": "SEC 1 - TOPIC 1",
-            "publish": "true",
-            "articles": [
-              {
-                "title": "Article 1",
-				"publish": "true"                
-              },
-              {
-                "title": "Article 2",
-				"publish": "true"   
-              }
-            ]
+            "publish": "true"
           }
         ],
         "translations": []
@@ -26,23 +16,11 @@
         "topics": [
           {
             "name": "SEC 2 - TOPIC 1",
-            "publish": "true",
-            "articles": [
-              {
-                "title": "Article 1",
-				"publish": "true"   
-              }
-            ]
+            "publish": "true"
           },
           {
             "name": "SEC 2 - TOPIC 2",
-            "publish": "true",
-            "articles": [
-              {
-                "title": "Article 1",
-				"publish": "true"   
-              }
-            ]
+            "publish": "true"
           }
           
         ],
