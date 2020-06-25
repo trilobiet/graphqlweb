@@ -6,6 +6,7 @@ import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.GenericArti
 
 import io.aexp.nodes.graphql.annotations.GraphQLArgument;
 import io.aexp.nodes.graphql.annotations.GraphQLArguments;
+import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 
 /**
  * 
@@ -26,6 +27,7 @@ public class TKArticleList implements GenericArticleList<TKArticle> {
 		)
 	})
 	
+	@GraphQLProperty(name="toolkitarticles")
 	private List<TKArticle> articles;
 
 	public List<TKArticle> getArticles() {
@@ -35,4 +37,5 @@ public class TKArticleList implements GenericArticleList<TKArticle> {
 	public void setArticles(List<TKArticle> articles) {
 		this.articles = articles;
 	}
+
 }

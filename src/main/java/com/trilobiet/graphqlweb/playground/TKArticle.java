@@ -7,7 +7,7 @@ import io.aexp.nodes.graphql.annotations.GraphQLIgnore;
 import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 
 @GraphQLProperty(
-		name = "article", 
+		name = "toolkitarticle", 
 		arguments = {
 			@GraphQLArgument(name = "id")
 		}

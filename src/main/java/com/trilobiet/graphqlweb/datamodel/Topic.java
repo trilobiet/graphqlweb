@@ -147,7 +147,7 @@ public class Topic {
 	
 	@Override
 	public String toString() {
-		return "Topic " + name + ", index=" + index + ", type=" + type + "]";
+		return "Topic [" + name + ", index=" + index + ", type=" + type + "]";
 	}
 
 }
