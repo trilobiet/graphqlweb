@@ -1,5 +1,6 @@
 package com.trilobiet.graphqlweb.datamodel;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -75,8 +76,9 @@ public class Section {
 	}
 
 	public List<Topic> getTopics() {
-		topics.sort(new TopicComparator());
-		return topics;
+		List<Topic> t = new ArrayList<>(topics);
+		t.sort(new TopicComparator());
+		return t;
 	}
 
 	public void setTopics(List<Topic> topics) {
