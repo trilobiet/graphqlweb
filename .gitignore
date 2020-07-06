@@ -1,7 +1,4 @@
 /target/
-.settings/
-.classpath
-.directory
-.project
-.gitignore
+.*
+!/.gitignore
 /HOWTO-package-maven.txt
