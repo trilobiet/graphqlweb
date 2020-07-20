@@ -13,7 +13,7 @@ import io.aexp.nodes.graphql.annotations.GraphQLProperty;
  * @author acdhirr
  *
  */
-public class TKArticleList implements GenericArticleList<TKArticle> {
+class TKArticleList implements GenericArticleList<TKArticle> {
 	
 	@GraphQLArguments({
 		@GraphQLArgument(

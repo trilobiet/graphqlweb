@@ -17,7 +17,7 @@ import io.aexp.nodes.graphql.GraphQLResponseEntity;
 import io.aexp.nodes.graphql.GraphQLTemplate;
 import io.aexp.nodes.graphql.InputObject;
 
-public class Main {
+class Main {
 
 	public static void main(String[] args) throws IllegalStateException, MalformedURLException {
 

@@ -12,7 +12,7 @@ import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 			@GraphQLArgument(name = "id")
 		}
 	)
-public class TKArticle extends ArticleImp {
+class TKArticle extends ArticleImp {
 
 	@GraphQLIgnore
 	private static final long serialVersionUID = 1L;

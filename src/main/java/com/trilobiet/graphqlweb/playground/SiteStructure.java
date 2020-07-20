@@ -7,7 +7,7 @@ import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.GenericSect
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionList;
 
-public class SiteStructure {
+class SiteStructure {
 
 	public static void main(String... strings) throws DaoException {
 		

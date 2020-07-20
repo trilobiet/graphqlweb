@@ -7,7 +7,7 @@ import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.GenericArticleDao;
 
-public class TestTKArticle {
+class TestTKArticle {
 
 	public static void main(String[] args) throws DaoException, IllegalStateException, MalformedURLException {
 		
