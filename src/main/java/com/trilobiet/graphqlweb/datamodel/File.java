@@ -1,8 +1,11 @@
 package com.trilobiet.graphqlweb.datamodel;
 
+import java.time.OffsetDateTime;
+
 public class File {
 
 	private String id, name, mime, url, provider, ext;
+	private OffsetDateTime createdAt, updatedAt;
 
 	public String getId() {
 		return id;
@@ -51,6 +54,23 @@ public class File {
 	public void setExt(String ext) {
 		this.ext = ext;
 	}
+	
+	public OffsetDateTime getCreatedAt() {
+		return createdAt;
+	}
+	
+	public void setCreatedAt(OffsetDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public OffsetDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(OffsetDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
 
 	@Override
 	public int hashCode() {

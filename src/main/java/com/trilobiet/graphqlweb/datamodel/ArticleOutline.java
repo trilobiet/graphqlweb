@@ -1,5 +1,7 @@
 package com.trilobiet.graphqlweb.datamodel;
 
+import java.time.OffsetDateTime;
+
 /**
  * Core Article info (non recursive) 
  * @author acdhirr
@@ -10,6 +12,7 @@ public class ArticleOutline implements SortableArticle  {
 	private String id, slug, title, summary, language;
 	private int index;
 	private boolean publish, topicLead;
+	private OffsetDateTime createdAt, updatedAt;
 
 	public String getId() {
 		return id;
@@ -73,6 +76,22 @@ public class ArticleOutline implements SortableArticle  {
 
 	public void setPublish(boolean publish) {
 		this.publish = publish;
+	}
+	
+	public OffsetDateTime getCreatedAt() {
+		return createdAt;
+	}
+	
+	public void setCreatedAt(OffsetDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public OffsetDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(OffsetDateTime updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 	
 	@Override
