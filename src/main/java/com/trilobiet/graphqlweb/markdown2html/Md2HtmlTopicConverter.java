@@ -16,6 +16,13 @@ public class Md2HtmlTopicConverter<T extends Topic> implements Md2HtmlConverter<
 		if (topic.getDescription() != null) {
 			topic.setDescription( function.apply(topic.getDescription()) );
 		}	
+		
+		topic.getTranslations().stream()
+		.forEach(t -> {
+			if (t.getDescription() != null) 
+				t.setDescription(function.apply(t.getDescription()));	
+		});
+		
 	}
 
 }

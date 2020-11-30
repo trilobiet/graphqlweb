@@ -16,6 +16,12 @@ public class Md2HtmlSectionConverter<T extends Section> implements Md2HtmlConver
 		if (section.getDescription() != null) {
 			section.setDescription( function.apply(section.getDescription()) );
 		}	
+		
+		section.getTranslations().stream()
+		.forEach(t -> {
+			if (t.getDescription() != null) 
+				t.setDescription(function.apply(t.getDescription()));	
+		});
 	}
 
 }
