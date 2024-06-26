@@ -2,10 +2,18 @@ package com.trilobiet.graphqlweb.datamodel;
 
 import java.time.OffsetDateTime;
 
+import io.aexp.nodes.graphql.annotations.GraphQLProperty;
+
 public class File {
 
 	private String id, name, mime, url, provider, ext;
-	private OffsetDateTime createdAt, updatedAt;
+	
+	@GraphQLProperty(name="created_at") 
+	private OffsetDateTime createdAt;
+		
+	@GraphQLProperty(name="updated_at")
+	private OffsetDateTime updatedAt;
+
 
 	public String getId() {
 		return id;

@@ -12,7 +12,10 @@ public class ArticleOutline implements SortableArticle  {
 	private String id, slug, title, summary, language;
 	private int index;
 	private boolean publish, topicLead;
-	private OffsetDateTime createdAt, updatedAt;
+	
+	private OffsetDateTime created_at;
+	private OffsetDateTime updated_at;
+	private OffsetDateTime published_at;
 
 	public String getId() {
 		return id;
@@ -78,20 +81,28 @@ public class ArticleOutline implements SortableArticle  {
 		this.publish = publish;
 	}
 	
-	public OffsetDateTime getCreatedAt() {
-		return createdAt;
+	public OffsetDateTime getCreated_at() {
+		return created_at;
 	}
 	
-	public void setCreatedAt(OffsetDateTime createdAt) {
-		this.createdAt = createdAt;
+	public void setCreated_at(OffsetDateTime created_at) {
+		this.created_at = created_at;
 	}
 
-	public OffsetDateTime getUpdatedAt() {
-		return updatedAt;
+	public OffsetDateTime getUpdated_at() {
+		return updated_at;
 	}
 
-	public void setUpdatedAt(OffsetDateTime updatedAt) {
-		this.updatedAt = updatedAt;
+	public void setUpdated_at(OffsetDateTime updated_at) {
+		this.updated_at = updated_at;
+	}
+
+	public OffsetDateTime getPublished_at() {
+		return published_at;
+	}
+
+	public void setPublished_at(OffsetDateTime published_at) {
+		this.published_at = published_at;
 	}
 	
 	@Override
