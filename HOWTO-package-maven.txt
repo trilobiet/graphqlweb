@@ -1,0 +1,17 @@
+
+Run from Eclipse: 
+	Run as -> maven install
+	
+Or run from cmd:
+	mvn clean install 
+	
+Now the package is in your local maven repository (~/.m2/repository/com/trilobiet/oapen/graphqlweb)	 
+	
+Include dependency in pom.xml of project that uses graphqlweb:
+
+	<dependency>
+		<groupId>com.trilobiet</groupId>
+		<artifactId>graphqlweb</artifactId>
+		<version>x.y.z</version>
+	</dependency>
+ 	
