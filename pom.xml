@@ -6,7 +6,7 @@
 	<groupId>com.trilobiet</groupId>
 	<artifactId>graphqlweb</artifactId>
 	<version>0.0.46</version>
-	<name>GraphQLTest</name>
+	<name>GraphQLWeb</name>
 	
 	<properties>
 	    <maven.compiler.source>11</maven.compiler.source>
