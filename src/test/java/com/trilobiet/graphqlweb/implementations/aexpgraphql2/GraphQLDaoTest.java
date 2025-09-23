@@ -191,6 +191,27 @@ public class GraphQLDaoTest {
 		assertThat(section, hasProperty("topics", Matchers.isA(List.class) ) );
 		assertThat(section, hasProperty("topics", Matchers.hasSize(1) ) );
 	}
+
+    
+    @Test
+	public void get_section_test2() throws IOException, DaoException {
+    	
+    	GenericSectionDao<SectionImp> dao 
+    		= new GenericSectionDao<>(host, SectionImp.class, SectionList.class);
+
+		enqueueResponseFromResourceFile("sections-test-2.json");
+		Section section = dao.getBySlug("lalala").get(); // Optional!
+		
+		assertThat(section, hasProperty("name", is("SECTION 1")));
+		
+		System.out.println("TOPICS " + section.getTopics());
+		
+		assertThat(section, hasProperty("topics", Matchers.isA(List.class) ) );
+		assertThat(section, hasProperty("topics", Matchers.hasSize(0) ) );
+	}
+    
+    
+    
     
     protected void enqueueResponseFromResourceFile(String filename) throws IOException {
     	

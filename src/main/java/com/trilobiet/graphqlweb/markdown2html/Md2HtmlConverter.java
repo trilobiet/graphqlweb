@@ -7,6 +7,7 @@ public interface Md2HtmlConverter<T> {
 	void convert(T object);
 	
 	default void convertList(List<T> convertibles) {
+		if (convertibles != null )
 		convertibles.stream().forEach(a -> convert(a));
 	}
 	

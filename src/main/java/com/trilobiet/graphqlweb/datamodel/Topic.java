@@ -125,14 +125,16 @@ public class Topic {
 	}
 	
 	public List<ArticleOutline> getArticles() {
-		articles.sort(new ArticleComparator());
+		if (articles != null)
+			articles.sort(new ArticleComparator());
 		return articles;
 	}
 
 	public void setArticles(List<ArticleOutline> articles) {
 		// only published Articles!
-		this.articles = articles.stream().
-			filter(a -> a.isPublish()).collect(Collectors.toList());
+		if (articles != null)
+			this.articles = articles.stream().
+				filter(a -> a.isPublish()).collect(Collectors.toList());
 	}
 	
 	

@@ -76,15 +76,20 @@ public class Section {
 	}
 
 	public List<Topic> getTopics() {
-		List<Topic> t = new ArrayList<>(topics);
-		t.sort(new TopicComparator());
+		
+		List<Topic> t = new ArrayList<>();
+		if (topics != null) {
+			t.addAll(topics);
+			t.sort(new TopicComparator());
+		}	
 		return t;
 	}
 
 	public void setTopics(List<Topic> topics) {
 		// only published Topics!
-		this.topics = topics.stream().
-			filter(t -> t.isPublish()).collect(Collectors.toList());
+		if (topics != null)
+			this.topics = topics.stream().
+				filter(t -> t.isPublish()).collect(Collectors.toList());
 	}
 	
 	public List<Translation> getTranslations() {
